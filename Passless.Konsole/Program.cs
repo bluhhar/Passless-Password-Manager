@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Passless;
+
 namespace Passless.Konsole
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
+            Passless.Controller.TestEnc();
+            Passless.Controller.TestDec();
         }
     }
 }
