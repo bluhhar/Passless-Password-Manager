@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C6D8ABD-45B8-496B-923B-79D2D0D92458}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gpg.NET</RootNamespace>
+    <AssemblyName>Gpg.NET</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\Gpg.NET.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GpgContextExtensions.cs" />
+    <Compile Include="src\GpgBuffer.cs" />
+    <Compile Include="src\EngineInfo.cs" />
+    <Compile Include="src\ErrorHandler.cs" />
+    <Compile Include="src\FileGpgBuffer.cs" />
+    <Compile Include="src\GpgContext.cs" />
+    <Compile Include="src\GpgKey.cs" />
+    <Compile Include="src\GpgArmorMode.cs" />
+    <Compile Include="src\GpgKeyNotFoundException.cs" />
+    <Compile Include="src\EncryptFlags.cs" />
+    <Compile Include="src\GpgMeError.cs" />
+    <Compile Include="src\GpgMeException.cs" />
+    <Compile Include="src\GpgNetException.cs" />
+    <Compile Include="src\Interop\GpgMeKey.cs" />
+    <Compile Include="src\GpgMeProtocol.cs" />
+    <Compile Include="src\GpgSubkey.cs" />
+    <Compile Include="src\Interop\AnsiCharPtrMarshaler.cs" />
+    <Compile Include="src\Interop\GpgMeHelper.cs" />
+    <Compile Include="src\GpgKeylistMode.cs" />
+    <Compile Include="src\Interop\Kernel32.cs" />
+    <Compile Include="src\PublicKeyAlgorithm.cs" />
+    <Compile Include="src\Interop\GpgMeKeySig.cs" />
+    <Compile Include="src\Interop\GpgMeSigNotation.cs" />
+    <Compile Include="src\GpgMeSigNotationFlags.cs" />
+    <Compile Include="src\Interop\GpgMeSubkey.cs" />
+    <Compile Include="src\Interop\GpgMeTofuInfo.cs" />
+    <Compile Include="src\Interop\GpgMeUserId.cs" />
+    <Compile Include="src\GpgNet.cs" />
+    <Compile Include="src\GpgValidity.cs" />
+    <Compile Include="src\Interop\GpgMeWrapper.cs" />
+    <Compile Include="src\GpgUserId.cs" />
+    <Compile Include="src\Interop\GCC\SeekPosition.cs" />
+    <Compile Include="src\Interop\GCC\Locale.cs" />
+    <Compile Include="src\MemoryGpgBuffer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Interop\Utilities\ExtensionMethods.cs" />
+    <Compile Include="src\Interop\GpgMeEngineInfo.cs" />
+    <Compile Include="src\Interop\Utilities\Helpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
