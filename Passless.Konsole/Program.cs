@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 using Passless;
+using Yubico.YubiKey.Piv;
+using Yubico.YubiKey;
 
 namespace Passless.Konsole
 {
@@ -12,8 +16,7 @@ namespace Passless.Konsole
     {
         private static void Main(string[] args)
         {
-            Passless.Controller.TestEnc();
-            Passless.Controller.TestDec();
+            Controller.Activation();
         }
     }
 }
