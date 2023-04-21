@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Passless;
 using Gpg.NET;
 using System.IO;
+using System.Web.UI.WebControls;
 
 namespace Passless.Konsole
 {
@@ -18,12 +19,57 @@ namespace Passless.Konsole
         {
             GpgNet.Initialise(@"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll");
             Console.WriteLine($"Started GpgME version {GpgNet.Version}");
-            Test0();
+            //Test0();
             //Test1();
             //Test2();
+
+            TestAddPassword();
+            //TestGetPassword();
+
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
+        public static void TestAddPassword()
+        {
+            //string pathToPasswords = @"C:\Users\bluhhar\.password-store";
+            Console.WriteLine("FileName:");
+            string fileName = Console.ReadLine();
+            Console.WriteLine("Enter Password:");
+            string password = Console.ReadLine();
+
+            var context = GpgContext.CreateContext();
+
+            context.KeylistMode = context.KeylistMode | GpgKeylistMode.WithSecret;
+
+            // Print GPG keys
+            var keys = context.FindKeys().ToArray();
+            var result = context.Encrypt(MemoryGpgBuffer.CreateFromString(password), keys[0]); //ПОПРОБОВАТЬ РЕАЛИЗОВАТЬ ЧТОБЫ вместо keys бралось email при вводе в файл подписи
+
+            var encPasswordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\" + fileName + ".gpg");
+            using (var fs = File.OpenWrite(encPasswordFile))
+            {
+                result.CopyTo(fs);
+            }
+            Console.WriteLine("File was encrypted successfully.");
+        }
+
+        private static void TestGetPassword()
+        {
+            var context = GpgContext.CreateContext();
+
+            Console.WriteLine("FileName:");            
+            string fileName = Console.ReadLine();
+
+            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\" + fileName + ".gpg");
+            // Create a GPG data buffer for storing the ciphertext
+            var inputBuffer = MemoryGpgBuffer.CreateFromFile(passwordFile);
+
+            var content = new StreamReader(context.Decrypt(inputBuffer)).ReadToEnd();
+
+            Console.WriteLine("Decryption output:");
+            Console.WriteLine(content);
+        }
+
         private static void Test2()
         {
 
@@ -49,7 +95,7 @@ namespace Passless.Konsole
 
 
             MemoryGpgBuffer helloBuffer = MemoryGpgBuffer.CreateFromString(helloWorld);
-            var encryptedBuffer = context.Encrypt(helloBuffer, keys[1]);
+            var encryptedBuffer = context.Encrypt(helloBuffer, keys[1]); //ПОПРОБОВАТЬ РЕАЛИЗОВАТЬ ЧТОБЫ вместо keys бралось email при вводе в файл подписи
             var encryptedByteBuffer = new byte[(int)encryptedBuffer.Length];
             encryptedBuffer.Read(encryptedByteBuffer, 0, (int)encryptedBuffer.Length);
             Console.WriteLine("========");
@@ -98,7 +144,7 @@ namespace Passless.Konsole
                 }
             }
 
-            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw.txt.gpg");
+            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw-reenc.gpg");
             // Create a GPG data buffer for storing the ciphertext
             var inputBuffer = MemoryGpgBuffer.CreateFromFile(passwordFile);
 
