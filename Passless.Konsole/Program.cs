@@ -18,8 +18,8 @@ namespace Passless.Konsole
         {
             GpgNet.Initialise(@"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll");
             Console.WriteLine($"Started GpgME version {GpgNet.Version}");
-            //Test0();
-            Test1();
+            Test0();
+            //Test1();
             //Test2();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
@@ -98,7 +98,7 @@ namespace Passless.Konsole
                 }
             }
 
-            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw.txt.asc");
+            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw.txt.gpg");
             // Create a GPG data buffer for storing the ciphertext
             var inputBuffer = MemoryGpgBuffer.CreateFromFile(passwordFile);
 

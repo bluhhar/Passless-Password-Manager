@@ -32,15 +32,17 @@
             this.contextMenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
+            this.getPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuMain
             // 
             this.contextMenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addPasswordToolStripMenuItem});
+            this.addPasswordToolStripMenuItem,
+            this.getPasswordToolStripMenuItem});
             this.contextMenuMain.Name = "contextMenuMain";
-            this.contextMenuMain.Size = new System.Drawing.Size(150, 26);
+            this.contextMenuMain.Size = new System.Drawing.Size(150, 48);
             // 
             // addPasswordToolStripMenuItem
             // 
@@ -54,13 +56,19 @@
             this.notifyIconMain.Text = "notifyIcon1";
             this.notifyIconMain.Visible = true;
             // 
+            // getPasswordToolStripMenuItem
+            // 
+            this.getPasswordToolStripMenuItem.Name = "getPasswordToolStripMenuItem";
+            this.getPasswordToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.getPasswordToolStripMenuItem.Text = "Get Password";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Text = "FormMain";
             this.contextMenuMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -71,6 +79,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuMain;
         private System.Windows.Forms.ToolStripMenuItem addPasswordToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIconMain;
+        private System.Windows.Forms.ToolStripMenuItem getPasswordToolStripMenuItem;
     }
 }
 
