@@ -23,12 +23,18 @@ namespace Passless.Konsole
             //Test1();
             //Test2();
 
-            TestAddPassword();
-            //TestGetPassword();
+            //TestAddPassword();
+            TestGetPassword();
 
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
+
+        public static void TestCreateRepo()
+        {
+
+        }
+
         public static void TestAddPassword()
         {
             //string pathToPasswords = @"C:\Users\bluhhar\.password-store";
@@ -42,10 +48,10 @@ namespace Passless.Konsole
             context.KeylistMode = context.KeylistMode | GpgKeylistMode.WithSecret;
 
             // Print GPG keys
-            var keys = context.FindKeys().ToArray();
-            var result = context.Encrypt(MemoryGpgBuffer.CreateFromString(password), keys[0]); //ПОПРОБОВАТЬ РЕАЛИЗОВАТЬ ЧТОБЫ вместо keys бралось email при вводе в файл подписи
+            var key = context.FindKey("bluh@btwow.ru"); //СДЕЛАТЬ ЧТОБЫ если нет ключа ошибку
+            var result = context.Encrypt(MemoryGpgBuffer.CreateFromString(password), key); //ПОПРОБОВАТЬ РЕАЛИЗОВАТЬ ЧТОБЫ вместо keys бралось email при вводе в файл подписи
 
-            var encPasswordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\" + fileName + ".gpg");
+            var encPasswordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.passless\" + fileName + ".gpg");
             using (var fs = File.OpenWrite(encPasswordFile))
             {
                 result.CopyTo(fs);
@@ -60,7 +66,7 @@ namespace Passless.Konsole
             Console.WriteLine("FileName:");            
             string fileName = Console.ReadLine();
 
-            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\" + fileName + ".gpg");
+            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.passless\" + fileName + ".gpg");
             // Create a GPG data buffer for storing the ciphertext
             var inputBuffer = MemoryGpgBuffer.CreateFromFile(passwordFile);
 
@@ -119,7 +125,7 @@ namespace Passless.Konsole
             var context = GpgContext.CreateContext();
             var recipient = context.FindKey("dev");
 
-            var reencFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw-reenc.gpg");
+            var reencFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.passless\testpw-reenc.gpg");
             var file = MemoryGpgBuffer.CreateFromFile(reencFile);
             var plaintext = new StreamReader(context.Decrypt(file)).ReadToEnd();
             Console.WriteLine(plaintext);
@@ -144,7 +150,7 @@ namespace Passless.Konsole
                 }
             }
 
-            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw-reenc.gpg");
+            var passwordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.passless\testpw-reenc.gpg");
             // Create a GPG data buffer for storing the ciphertext
             var inputBuffer = MemoryGpgBuffer.CreateFromFile(passwordFile);
 
@@ -155,7 +161,7 @@ namespace Passless.Konsole
 
             var result = context.Encrypt(MemoryGpgBuffer.CreateFromString(content + "Re-Encrypted: True\n"), keys.Take(1));
 
-            var reEncPasswordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.password-store\testpw-reenc.gpg");
+            var reEncPasswordFile = Environment.ExpandEnvironmentVariables(@"%userprofile%\.passless\testpw-reenc.gpg");
             using (var fs = File.OpenWrite(reEncPasswordFile))
             {
                 result.CopyTo(fs);
