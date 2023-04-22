@@ -16,5 +16,15 @@ namespace Passless.WinForm
         {
             InitializeComponent();
         }
+
+        private void FormMain_Activated(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

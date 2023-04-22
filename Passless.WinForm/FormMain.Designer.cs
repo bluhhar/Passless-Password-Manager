@@ -29,46 +29,118 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.contextMenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.getPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.passlessPasswordManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.passwordStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuMain
             // 
+            this.contextMenuMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.contextMenuMain.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.contextMenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.passlessPasswordManagerToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.passwordStoreToolStripMenuItem,
+            this.toolStripSeparator2,
             this.addPasswordToolStripMenuItem,
-            this.getPasswordToolStripMenuItem});
+            this.getPasswordToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.quitToolStripMenuItem});
             this.contextMenuMain.Name = "contextMenuMain";
-            this.contextMenuMain.Size = new System.Drawing.Size(150, 48);
+            this.contextMenuMain.Size = new System.Drawing.Size(202, 154);
             // 
             // addPasswordToolStripMenuItem
             // 
+            this.addPasswordToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.addPasswordToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addPasswordToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.addPasswordToolStripMenuItem.Name = "addPasswordToolStripMenuItem";
-            this.addPasswordToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.addPasswordToolStripMenuItem.Text = "Add password";
+            this.addPasswordToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.addPasswordToolStripMenuItem.Text = "Add";
+            // 
+            // getPasswordToolStripMenuItem
+            // 
+            this.getPasswordToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.getPasswordToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.getPasswordToolStripMenuItem.Name = "getPasswordToolStripMenuItem";
+            this.getPasswordToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.getPasswordToolStripMenuItem.Text = "Get";
             // 
             // notifyIconMain
             // 
             this.notifyIconMain.ContextMenuStrip = this.contextMenuMain;
-            this.notifyIconMain.Text = "notifyIcon1";
+            this.notifyIconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconMain.Icon")));
+            this.notifyIconMain.Text = "Passless";
             this.notifyIconMain.Visible = true;
             // 
-            // getPasswordToolStripMenuItem
+            // quitToolStripMenuItem
             // 
-            this.getPasswordToolStripMenuItem.Name = "getPasswordToolStripMenuItem";
-            this.getPasswordToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.getPasswordToolStripMenuItem.Text = "Get Password";
+            this.quitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.AutoSize = false;
+            this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(198, 10);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.AutoSize = false;
+            this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(198, 10);
+            // 
+            // passlessPasswordManagerToolStripMenuItem
+            // 
+            this.passlessPasswordManagerToolStripMenuItem.Enabled = false;
+            this.passlessPasswordManagerToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passlessPasswordManagerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.passlessPasswordManagerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.passlessPasswordManagerToolStripMenuItem.Name = "passlessPasswordManagerToolStripMenuItem";
+            this.passlessPasswordManagerToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.passlessPasswordManagerToolStripMenuItem.Text = "Passless Password Manager";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.AutoSize = false;
+            this.toolStripSeparator3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(198, 10);
+            // 
+            // passwordStoreToolStripMenuItem
+            // 
+            this.passwordStoreToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.passwordStoreToolStripMenuItem.Name = "passwordStoreToolStripMenuItem";
+            this.passwordStoreToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.passwordStoreToolStripMenuItem.Text = "Password Store";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
+            this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.Activated += new System.EventHandler(this.FormMain_Activated);
             this.contextMenuMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -80,6 +152,12 @@
         private System.Windows.Forms.ToolStripMenuItem addPasswordToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIconMain;
         private System.Windows.Forms.ToolStripMenuItem getPasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem passlessPasswordManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem passwordStoreToolStripMenuItem;
     }
 }
 
