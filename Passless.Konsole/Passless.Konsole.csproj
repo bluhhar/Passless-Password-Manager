@@ -54,9 +54,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gpg.NET\Gpg.NET.csproj">
+    <ProjectReference Include="..\Gpg.NET\Passless.Gpg.NET.csproj">
       <Project>{7c6d8abd-45b8-496b-923b-79d2d0d92458}</Project>
-      <Name>Gpg.NET</Name>
+      <Name>Passless.Gpg.NET</Name>
     </ProjectReference>
     <ProjectReference Include="..\Passless\Passless.csproj">
       <Project>{5106db76-b63c-4a3d-a004-56343393f1fd}</Project>

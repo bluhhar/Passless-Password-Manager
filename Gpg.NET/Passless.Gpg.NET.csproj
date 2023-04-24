@@ -48,47 +48,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GpgContextExtensions.cs" />
-    <Compile Include="src\GpgBuffer.cs" />
-    <Compile Include="src\EngineInfo.cs" />
-    <Compile Include="src\ErrorHandler.cs" />
-    <Compile Include="src\FileGpgBuffer.cs" />
-    <Compile Include="src\GpgContext.cs" />
-    <Compile Include="src\GpgKey.cs" />
-    <Compile Include="src\GpgArmorMode.cs" />
-    <Compile Include="src\GpgKeyNotFoundException.cs" />
-    <Compile Include="src\EncryptFlags.cs" />
-    <Compile Include="src\GpgMeError.cs" />
-    <Compile Include="src\GpgMeException.cs" />
-    <Compile Include="src\GpgNetException.cs" />
-    <Compile Include="src\Interop\GpgMeKey.cs" />
-    <Compile Include="src\GpgMeProtocol.cs" />
-    <Compile Include="src\GpgSubkey.cs" />
-    <Compile Include="src\Interop\AnsiCharPtrMarshaler.cs" />
-    <Compile Include="src\Interop\GpgMeHelper.cs" />
-    <Compile Include="src\GpgKeylistMode.cs" />
-    <Compile Include="src\Interop\Kernel32.cs" />
-    <Compile Include="src\PublicKeyAlgorithm.cs" />
-    <Compile Include="src\Interop\GpgMeKeySig.cs" />
-    <Compile Include="src\Interop\GpgMeSigNotation.cs" />
-    <Compile Include="src\GpgMeSigNotationFlags.cs" />
-    <Compile Include="src\Interop\GpgMeSubkey.cs" />
-    <Compile Include="src\Interop\GpgMeTofuInfo.cs" />
-    <Compile Include="src\Interop\GpgMeUserId.cs" />
-    <Compile Include="src\GpgNet.cs" />
-    <Compile Include="src\GpgValidity.cs" />
-    <Compile Include="src\Interop\GpgMeWrapper.cs" />
-    <Compile Include="src\GpgUserId.cs" />
-    <Compile Include="src\Interop\GCC\SeekPosition.cs" />
-    <Compile Include="src\Interop\GCC\Locale.cs" />
-    <Compile Include="src\MemoryGpgBuffer.cs" />
+    <Compile Include="Classes\GpgBuffer.cs" />
+    <Compile Include="Classes\EngineInfo.cs" />
+    <Compile Include="Exceptions\ErrorHandler.cs" />
+    <Compile Include="Classes\FileGpgBuffer.cs" />
+    <Compile Include="Classes\GpgContext.cs" />
+    <Compile Include="Classes\GpgKey.cs" />
+    <Compile Include="Enumarates\GpgArmorMode.cs" />
+    <Compile Include="Exceptions\GpgKeyNotFoundException.cs" />
+    <Compile Include="Enumarates\EncryptFlags.cs" />
+    <Compile Include="Enumarates\GpgMeError.cs" />
+    <Compile Include="Exceptions\GpgMeException.cs" />
+    <Compile Include="Exceptions\GpgNetException.cs" />
+    <Compile Include="Interop\GpgMeKey.cs" />
+    <Compile Include="Enumarates\GpgMeProtocol.cs" />
+    <Compile Include="Classes\GpgSubkey.cs" />
+    <Compile Include="Interop\AnsiCharPtrMarshaler.cs" />
+    <Compile Include="Interop\GpgMeHelper.cs" />
+    <Compile Include="Enumarates\GpgKeylistMode.cs" />
+    <Compile Include="Interop\Kernel32.cs" />
+    <Compile Include="Enumarates\PublicKeyAlgorithm.cs" />
+    <Compile Include="Interop\GpgMeKeySig.cs" />
+    <Compile Include="Interop\GpgMeSigNotation.cs" />
+    <Compile Include="Enumarates\GpgMeSigNotationFlags.cs" />
+    <Compile Include="Interop\GpgMeSubkey.cs" />
+    <Compile Include="Interop\GpgMeTofuInfo.cs" />
+    <Compile Include="Interop\GpgMeUserId.cs" />
+    <Compile Include="Classes\GpgNet.cs" />
+    <Compile Include="Enumarates\GpgValidity.cs" />
+    <Compile Include="Interop\GpgMeWrapper.cs" />
+    <Compile Include="Classes\GpgUserId.cs" />
+    <Compile Include="Interop\GCC\SeekPosition.cs" />
+    <Compile Include="Interop\GCC\Locale.cs" />
+    <Compile Include="Classes\MemoryGpgBuffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Interop\Utilities\ExtensionMethods.cs" />
-    <Compile Include="src\Interop\GpgMeEngineInfo.cs" />
-    <Compile Include="src\Interop\Utilities\Helpers.cs" />
+    <Compile Include="Utilities\ExtensionMethods.cs" />
+    <Compile Include="Interop\GpgMeEngineInfo.cs" />
+    <Compile Include="Utilities\Helpers.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
