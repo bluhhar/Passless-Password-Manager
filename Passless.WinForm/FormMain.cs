@@ -26,5 +26,11 @@ namespace Passless.WinForm
         {
             Application.Exit();
         }
+
+        private void addPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddPassword formAddPassword = new FormAddPassword();
+            formAddPassword.Show();
+        }
     }
 }

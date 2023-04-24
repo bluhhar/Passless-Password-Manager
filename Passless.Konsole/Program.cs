@@ -21,8 +21,8 @@ namespace Passless.Konsole
             Console.WriteLine($"Started GpgME version {GpgNet.Version}");
 
             //TestCreateRepo();
-            //TestAddPassword();
-            //TestGetPassword();
+            TestAddPassword();
+            TestGetPassword();
 
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
@@ -43,7 +43,7 @@ namespace Passless.Konsole
         public static void TestAddPassword()
         {
             //string pathToPasswords = @"C:\Users\bluhhar\.password-store";
-            Console.WriteLine("FileName:");
+            Console.WriteLine("FillName:");
             string fileName = Console.ReadLine();
             Console.WriteLine("Enter Password:");
             string password = Console.ReadLine();
