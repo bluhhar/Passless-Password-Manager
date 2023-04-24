@@ -18,7 +18,7 @@ namespace Passless.Konsole
         private static void Main(string[] args)
         {
             GpgNet.Initialise(@"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll");
-            Console.WriteLine($"Started GpgME version {GpgNet.Version}");
+            Console.WriteLine($"Started GpgME version {GpgNet.Version}"); //дОБавить логер
 
             //TestCreateRepo();
             TestAddPassword();
