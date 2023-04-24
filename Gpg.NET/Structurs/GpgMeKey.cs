@@ -9,9 +9,9 @@ namespace Gpg.NET.Interop
 	internal struct GpgMeKey
 	{
 		public int refs;
-		// Several flags are packed into a single 32-bit integer,
-		// so we explicitly define its size here.
-		public UInt32 Flags;
+        // Несколько флагов упакованы в одно 32-разрядное целое число,
+        // поэтому здесь мы явно определяем его размер.
+        public UInt32 Flags;
 		public GpgMeProtocol Protocol;
 		public string IssuerSerial;
 		public string IssuerName;
@@ -29,9 +29,9 @@ namespace Gpg.NET.Interop
 			return new GpgKey(handle)
 			{
 				KeylistMode = KeylistMode,
-				// Read the boolean flags from the Flags field.
-				// This may not work on big-endian systems.
-				Revoked = ((Flags >> 0) & 1) == 1,
+                // Считайте логические флаги из поля Flags.
+                // Это может не сработать в системах порядкового байта.
+                Revoked = ((Flags >> 0) & 1) == 1,
 				Expired = ((Flags >> 1) & 1) == 1,
 				Disabled = ((Flags >> 2) & 1) == 1,
 				Invalid = ((Flags >> 3) & 1) == 1,

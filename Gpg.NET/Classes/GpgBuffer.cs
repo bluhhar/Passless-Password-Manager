@@ -6,45 +6,45 @@ using Gpg.NET.Interop.GCC;
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Represents a data buffer, used for sending data to GPG.
-	/// </summary>
-	public abstract class GpgBuffer : Stream
+    /// <summary>
+    /// Представляет собой буфер данных, используемый для отправки данных в GPG.
+    /// </summary>
+    public abstract class GpgBuffer : Stream
 	{
 		internal IntPtr Handle { get; }
 
-		/// <summary>
-		/// Gets a value indicating whether this stream supports reading.
-		/// </summary>
-		public override bool CanRead => true;
-		/// <summary>
-		/// Gets a value indicating whether this stream supports seeking.
-		/// </summary>
-		public override bool CanSeek => true;
-		/// <summary>
-		/// Gets a value indicating whether this stream supports writing.
-		/// </summary>
-		public override bool CanWrite => true;
+        /// <summary>
+        /// Получает значение, указывающее, поддерживает ли этот поток чтение.
+        /// </summary>
+        public override bool CanRead => true;
+        /// <summary>
+        /// Получает значение, указывающее, поддерживает ли этот поток поиск.
+        /// </summary>
+        public override bool CanSeek => true;
+        /// <summary>
+        /// Получает значение, указывающее, поддерживает ли этот поток запись.
+        /// </summary>
+        public override bool CanWrite => true;
 
-		/// <summary>
-		/// Gets the length in bytes of the stream.
-		/// </summary>
-		public override long Length
+        /// <summary>
+        /// Возвращает длину потока в байтах.
+        /// </summary>
+        public override long Length
 		{
 			get
 			{
-				// Save the current position
-				var cur = GpgMeWrapper.gpgme_data_seek(Handle, 0, SeekPosition.Cur);
-				// Seeking to an offset of 0 relative to the end will return the position of the final byte
-				var end = GpgMeWrapper.gpgme_data_seek(Handle, 0, SeekPosition.End);
-				// Restore the original position
-				var res = GpgMeWrapper.gpgme_data_seek(Handle, cur, SeekPosition.Set);
+                // Сохраните текущую позицию
+                var cur = GpgMeWrapper.gpgme_data_seek(Handle, 0, SeekPosition.Cur);
+                // Поиск со смещением 0 относительно конца вернет позицию последнего байта
+                var end = GpgMeWrapper.gpgme_data_seek(Handle, 0, SeekPosition.End);
+                // Восстанавливает исходное положение
+                var res = GpgMeWrapper.gpgme_data_seek(Handle, cur, SeekPosition.Set);
 				if (cur == -1 || end == -1 || res == -1)
 				{
 					throw new InvalidOperationException("Failed to get stream length");
 				}
-				// The length of the stream is simply the position of the final byte plus one.
-				return end + 1;
+                // Длина потока - это просто позиция последнего байта плюс один.
+                return end + 1;
 			}
 		}
 

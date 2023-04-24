@@ -7,9 +7,10 @@ namespace Gpg.NET.Interop
 	internal class GpgMeWrapper
 	{
 		private const string GpgMeDll = @"libgpgme-11.dll";
-		//private const string GpgMeDll = @"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll";
-		// SETUP
+        //private const string GpgMeDll = @"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll";
 
+        #region SETUP
+        
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(AnsiCharPtrMarshaler))]
 		public static extern string gpgme_check_version(string required_version);
@@ -30,9 +31,11 @@ namespace Gpg.NET.Interop
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern void gpgme_set_locale(IntPtr ctx, Locale category, string value);
 
-		// DATA BUFFERS
+        #endregion
 
-		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
+        #region DATA_BUFFERS
+
+        [DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern GpgMeError gpgme_data_new(out IntPtr dh);
 
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
@@ -50,9 +53,11 @@ namespace Gpg.NET.Interop
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern int gpgme_data_seek(IntPtr dh, int offset, SeekPosition whence);
 
-		// CONTEXTS
-		//		create/delete
-		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
+        #endregion
+
+        #region CONTEXTS
+        //		create/delete
+        [DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern GpgMeError gpgme_new(out IntPtr ctx);
 
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
@@ -82,9 +87,11 @@ namespace Gpg.NET.Interop
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern GpgArmorMode gpgme_get_armor(IntPtr ctx);
 
-		// LISTING KEYS
+        #endregion
 
-		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
+        #region LISTING_KEYS
+
+        [DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern GpgMeError gpgme_op_keylist_start(IntPtr ctx, string pattern, bool secret_only);
 
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
@@ -93,9 +100,11 @@ namespace Gpg.NET.Interop
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern GpgMeError gpgme_op_keylist_end(IntPtr ctx);
 
-		// PROTOCOLS
+        #endregion
 
-		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
+        #region PROTOCOLS
+
+        [DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		public static extern GpgMeError gpgme_set_protocol(IntPtr ctx, GpgMeProtocol protocol);
 
 		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
@@ -105,10 +114,14 @@ namespace Gpg.NET.Interop
 		[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(AnsiCharPtrMarshaler))]
 		public static extern string gpgme_get_protocol_name(GpgMeProtocol protocol);
 
-		// ERROR HANDLING
+        #endregion
 
-		[DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
+        #region ERROR_HANDLING
+
+        [DllImport(GpgMeDll, CharSet = CharSet.Ansi, ThrowOnUnmappableChar = true, CallingConvention = CallingConvention.Cdecl)]
 		[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(AnsiCharPtrMarshaler))]
 		public static extern string gpgme_strerror(GpgMeError err);
-	}
+
+        #endregion
+    }
 }

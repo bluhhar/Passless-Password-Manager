@@ -4,10 +4,10 @@ using Gpg.NET.Interop;
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Represents a file-backed data buffer, used for sending data to GPG.
-	/// </summary>
-	public class FileGpgBuffer : GpgBuffer
+    /// <summary>
+    /// Представляет собой буфер данных с файловой поддержкой, используемый для отправки данных в GPG.
+    /// </summary>
+    public class FileGpgBuffer : GpgBuffer
 	{
 		private FileStream BackingFile { get; }
 
@@ -16,16 +16,16 @@ namespace Gpg.NET
 			BackingFile = backingFile;
 		}
 
-		/// <summary>
-		/// Creates a new file-based buffer. Not yet implemented.
-		/// </summary>
-		/// <param name="path">The path to the file from which the buffer should be created.
-		/// If no file exists at the given path, a file is created.</param>
-		/// <returns></returns>
-		public static GpgBuffer CreateFileBuffer(string path)
+        /// <summary>
+        /// Создает новый буфер на основе файла. Еще не реализовано.
+        /// </summary>
+        /// <param name="path">Путь к файлу, из которого должен быть создан буфер.
+        /// Если по заданному пути не существует файла, создается файл.</param>
+        /// <returns></returns>
+        public static GpgBuffer CreateFileBuffer(string path)
 		{
-			// The current implementation doesn't work yet
-			throw new NotImplementedException();
+            // Текущая реализация пока не работает
+            throw new NotImplementedException();
 			/*
 			var stream = File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 			var fileDescriptor = stream.SafeFileHandle.DangerousGetHandle();

@@ -2,19 +2,19 @@ using System;
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Specifies the behaviour of a key listing operation.
-	/// </summary>
-	[Flags]
+    /// <summary>
+    /// Определяет поведение операции перечисления ключей.
+    /// </summary>
+    [Flags]
 	public enum GpgArmorMode
 	{
-		/// <summary>
-		/// Unknown or no options set.
-		/// </summary>
-		Off = 0,
-		/// <summary>
-		/// Search the local keyring for keys.
-		/// </summary>
-		On = 1
+        /// <summary>
+        /// Неизвестные или не заданные параметры.
+        /// </summary>
+        Off = 0,
+        /// <summary>
+        /// Поищите ключи в местной связке для ключей.
+        /// </summary>
+        On = 1
 	}
 }

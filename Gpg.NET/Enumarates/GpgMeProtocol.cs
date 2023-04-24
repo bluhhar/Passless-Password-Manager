@@ -1,37 +1,37 @@
 ﻿namespace Gpg.NET
 {
-	/// <summary>
-	/// Specifies the set of possible protocol values that are supported by GpgME.
-	/// </summary>
-	public enum GpgMeProtocol
+    /// <summary>
+    /// Задает набор возможных значений протокола, поддерживаемых GpgME.
+    /// </summary>
+    public enum GpgMeProtocol
 	{
-		/// <summary>
-		/// The OpenPGP protocol.
-		/// </summary>
-		OpenPgp,
-		/// <summary>
-		/// Cryptographic Message Syntax.
-		/// </summary>
-		Cms,
-		/// <summary>
-		/// Under development. Please ask on gnupg-devel@gnupg.org for help.  
-		/// </summary>
-		GpgConf,
-		/// <summary>
-		/// The raw Assuan protocol.
-		/// </summary>
-		Assuan,
-		/// <summary>
-		/// Under development. Please ask on gnupg-devel@gnupg.org for help. 
-		/// </summary>
-		G13,
-		/// <summary>
-		/// Under development. Please ask on gnupg-devel@gnupg.org for help. 
-		/// </summary>
-		UiServer,
-		/// <summary>
-		/// Special protocol used for running processes.
-		/// </summary>
-		Spawn
-	}
+        /// <summary>
+        /// Протокол OpenPGP.
+        /// </summary>
+        OpenPgp,
+        /// <summary>
+        /// Синтаксис криптографического сообщения.
+        /// </summary>
+        Cms,
+        /// <summary>
+        /// Находится в стадии разработки 
+        /// </summary>
+        GpgConf,
+        /// <summary>
+        /// Необработанный ассуанский протокол.
+        /// </summary>
+        Assuan,
+        /// <summary>
+        /// Находится в стадии разработки  
+        /// </summary>
+        G13,
+        /// <summary>
+        /// Находится в стадии разработки 
+        /// </summary>
+        UiServer,
+        /// <summary>
+        /// Специальный протокол, используемый для запуска процессов.
+        /// </summary>
+        Spawn
+    }
 }

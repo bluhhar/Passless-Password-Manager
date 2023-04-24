@@ -10,8 +10,8 @@ namespace Gpg.NET.Interop
 		[FieldOffset(0)]
 		public IntPtr Next;
 		[FieldOffset(4)]
-		// Several flags are packed into a single 32-bit integer,
-		// so we explicitly define its size here.
+		// Несколько флагов упакованы в одно 32-разрядное целое число,
+		// поэтому здесь мы явно определяем его размер.
 		public UInt32 Flags;
 		[FieldOffset(8)]
 		public PublicKeyAlgorithm PublicKeyAlgorithm;
@@ -20,15 +20,15 @@ namespace Gpg.NET.Interop
 		[FieldOffset(16)]
 		public string KeyId;
 
-		// A hidden field is located at offset 20, taking up 17 bytes.
-		// This puts the next possible offset at 37, but since it needs
-		// to be a multiple of 4, we skip 3 bytes and continue at 40.
-		[FieldOffset(40)]
+        // Скрытое поле расположено со смещением 20 и занимает 17 байт.
+        // Это приводит к следующему возможному смещению на 37, но поскольку для этого необходимо
+        // чтобы быть кратным 4, мы пропускаем 3 байта и продолжаем с 40.
+        [FieldOffset(40)]
 		public string Fingerprint;
 		[FieldOffset(44)]
-		// GpgME defines these as signed 32-bit integers, however they
-		// are really unsigned.
-		public uint Timestamp;
+        // GpgME определяет их как 32-разрядные целые числа со знаком,
+        // однако на самом деле они без знака.
+        public uint Timestamp;
 		[FieldOffset(48)]
 		public uint Expires;
 		[FieldOffset(52)]
@@ -42,9 +42,9 @@ namespace Gpg.NET.Interop
 		{
 			return new GpgSubkey(handle)
 			{
-				// Read the boolean flags from the Flags field.
-				// This may not work on big-endian systems.
-				Revoked = ((Flags >> 0) & 1) == 1,
+                // Считайте логические флаги из поля Flags.
+                // Это может не сработать в системах порядкового байта.
+                Revoked = ((Flags >> 0) & 1) == 1,
 				Expired = ((Flags >> 1) & 1) == 1,
 				Disabled = ((Flags >> 2) & 1) == 1,
 				Invalid = ((Flags >> 3) & 1) == 1,

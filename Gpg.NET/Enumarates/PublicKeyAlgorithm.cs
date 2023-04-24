@@ -2,56 +2,56 @@ using System;
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Enumerates public key algorithms supported by GpgME.
-	/// </summary>
-	public enum PublicKeyAlgorithm
+    /// <summary>
+    /// Перечисляет алгоритмы с открытым ключом, поддерживаемые GpgME.
+    /// </summary>
+    public enum PublicKeyAlgorithm
 	{
-		/// <summary>
-		/// An unknown algorithm.
-		/// </summary>
-		Unknown = 0,
-		/// <summary>
-		/// The RSA (Rivest, Shamir, Adleman) algorithm.
-		/// </summary>
-		RSA = 1,
-		/// <summary>
-		/// The RSA algorith, for encryption and decryption only.
-		/// </summary>
-		[Obsolete]
+        /// <summary>
+        /// Неизвестный алгоритм.
+        /// </summary>
+        Unknown = 0,
+        /// <summary>
+        /// Алгоритм RSA (Ривест, Шамир, Адлеман).
+        /// </summary>
+        RSA = 1,
+        /// <summary>
+        /// Алгоритм RSA предназначен только для шифрования и дешифрования.
+        /// </summary>
+        [Obsolete]
 		RsaE = 2,
-		/// <summary>
-		/// The RSA algorithm, for signing and verification only.
-		/// </summary>
-		[Obsolete]
+        /// <summary>
+        /// Алгоритм RSA, только для подписи и верификации.
+        /// </summary>
+        [Obsolete]
 		RsaS = 3,
-		/// <summary>
-		/// Also indicates Elgamal and is used specifically in GnuPG.
-		/// </summary>
-		ElgamalE = 16,
-		/// <summary>
-		/// DSA (Digital Signature Algorithm).
+        /// <summary>
+        /// Также указывает на Elgamal и используется специально в GnuPG.
+        /// </summary>
+        ElgamalE = 16,
+        /// <summary>
+        /// DSA (алгоритм цифровой подписи).
 		/// </summary>
 		DSA = 17,
-		/// <summary>
-		/// Generic indicator for elliptic curve algorithms.
-		/// </summary>
-		ECC = 18,
-		/// <summary>
-		/// Elgamal.
-		/// </summary>
-		Elgamal = 20,
-		/// <summary>
-		/// Elliptic Curve Digital Signature Algorithm as defined by FIPS 186-2 and RFC-6637.
-		/// </summary>
-		ECDSA = 301,
-		/// <summary>
-		/// Elliptic Curve Diffie-Hellmann as defined by RFC-6637
-		/// </summary>
-		ECDH = 302,
-		/// <summary>
-		/// The Edwards DSA Algorithm.
-		/// </summary>
-		EdDSA = 303
+        /// <summary>
+        /// Универсальный индикатор для алгоритмов построения эллиптических кривых.
+        /// </summary>
+        ECC = 18,
+        /// <summary>
+        /// Эльгамал.
+        /// </summary>
+        Elgamal = 20,
+        /// <summary>
+        /// Алгоритм цифровой подписи с эллиптической кривой, определенный FIPS 186-2 и RFC-6637.
+        /// </summary>
+        ECDSA = 301,
+        /// <summary>
+        /// Эллиптическая кривая Диффи-Хеллмана, определенная в RFC-6637
+        /// </summary>
+        ECDH = 302,
+        /// <summary>
+        /// Алгоритм Edwards DSA.
+        /// </summary>
+        EdDSA = 303
 	}
 }

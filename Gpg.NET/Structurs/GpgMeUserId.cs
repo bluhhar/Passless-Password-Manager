@@ -14,8 +14,8 @@ namespace Gpg.NET.Interop
 		public string Email;
 		public string Comment;
 		public IntPtr Signatures;
-		// TODO: ignore GPG-internal variable
-		public IntPtr LastSignature;
+        // TODO: игнорировать GPG-внутреннюю переменную
+        public IntPtr LastSignature;
 		public string Address;
 		public IntPtr TofuInfo;
 

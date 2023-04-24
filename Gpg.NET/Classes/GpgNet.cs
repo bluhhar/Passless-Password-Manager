@@ -6,71 +6,70 @@ using Gpg.NET.Interop;
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Used to configure and initialise the underlying GPGME library.
-	/// </summary>
-	public static class GpgNet
+    /// <summary>
+    /// Используется для настройки и инициализации базовой библиотеки GPGME.
+    /// </summary>
+    public static class GpgNet
 	{
-		// TODO: Annotate these
-		/// <summary>
-		/// Gets the version of the GpgME library currently in use.
-		/// </summary>
-		public static string Version { get; private set; }
-		/// <summary>
-		/// Gets a value indicating whether the underlying GpgME library has been initialised.
-		/// </summary>
-		public static bool Initialised { get; private set; }
-		/// <summary>
-		/// Gets a list of GpgME engines available for use.
-		/// </summary>
-		public static IReadOnlyList<EngineInfo> AvailableEngines { get; private set; }
+        /// <summary>
+        /// Возвращает версию библиотеки GpgME, используемую в данный момент.
+        /// </summary>
+        public static string Version { get; private set; }
+        /// <summary>
+        /// Возвращает значение, указывающее, была ли инициализирована базовая библиотека GpgME.
+        /// </summary>
+        public static bool Initialised { get; private set; }
+        /// <summary>
+        /// Возвращает список движков GpgME, доступных для использования.
+        /// </summary>
+        public static IReadOnlyList<EngineInfo> AvailableEngines { get; private set; }
 
-		/// <summary>
-		/// Gets the default home directory for GPG.
-		/// </summary>
-		public static string Homedir { get; private set; }
-		/// <summary>
-		/// Gets the system configuration directory of GPG.
-		/// </summary>
-		public static string Sysconfdir { get; private set; }
-		/// <summary>
-		/// Gets the directory containing the GPG binaries.
-		/// </summary>
-		public static string Bindir { get; private set; }
-		/// <summary>
-		/// Gets the directory containing the GPG libraries.
-		/// </summary>
-		public static string Libdir { get; private set; }
-		/// <summary>
-		/// Gets the directory containing the GPG helper program files.
-		/// </summary>
-		public static string Libexecdir { get; private set; }
-		/// <summary>
-		/// Gets the directory containing shared data used by GPG.
-		/// </summary>
-		public static string Datadir { get; private set; }
-		/// <summary>
-		/// Gets the directory containing locale data used by GPG.
-		/// </summary>
-		public static string Localedir { get; private set; }
-		/// <summary>
-		/// Gets the path to the socket file used to connect to the GPG agent.
-		/// </summary>
-		public static string AgentSocket { get; private set; }
+        /// <summary>
+        /// Возвращает домашний каталог по умолчанию для GPG.
+        /// </summary>
+        public static string Homedir { get; private set; }
+        /// <summary>
+        /// Возвращает каталог конфигурации системы GPG.
+        /// </summary>
+        public static string Sysconfdir { get; private set; }
+        /// <summary>
+        /// Возвращает каталог, содержащий двоичные файлы GPG.
+        /// </summary>
+        public static string Bindir { get; private set; }
+        /// <summary>
+        /// Возвращает каталог, содержащий библиотеки GPG.
+        /// </summary>
+        public static string Libdir { get; private set; }
+        /// <summary>
+        /// Возвращает каталог, содержащий файлы вспомогательной программы GPG.
+        /// </summary>
+        public static string Libexecdir { get; private set; }
+        /// <summary>
+        /// Возвращает каталог, содержащий общие данные, используемые GPG.
+        /// </summary>
+        public static string Datadir { get; private set; }
+        /// <summary>
+        /// Возвращает каталог, содержащий данные локали, используемые GPG.
+        /// </summary>
+        public static string Localedir { get; private set; }
+        /// <summary>
+        /// Возвращает путь к файлу сокета, используемому для подключения к агенту GPG.
+        /// </summary>
+        public static string AgentSocket { get; private set; }
 
-		/// <summary>
-		/// Initialises the underlying GpgME library.
-		/// </summary>
-		/// <param name="dllPath">When set, overrides the default GpgME DLL location.</param>
-		/// <param name="installDir">When set, overrides the default GpgME installation directory.
-		/// This should point to the bin directory of the GPG installation directory.</param>
-		/// <param name="minLibraryVersion">
-		/// The minimum required version of GpgME. Set to null to disable this version check.
-		/// </param>
-		/// <param name="minGpgVersion">
-		/// The minimum required version of Gpg. Set to null to disable this version check.
-		/// </param>
-		public static void Initialise(string dllPath = null, string installDir = null, string minLibraryVersion = "1.8.0", string minGpgVersion = "2.0.0")
+        /// <summary>
+        /// Инициализирует базовую библиотеку GpgME.
+        /// </summary>
+        /// <param name="dllPath">Если задано, переопределяет расположение библиотеки DLL GpgME по умолчанию.</param>
+        /// <param name="installDir">Если задано, переопределяет каталог установки GpgME по умолчанию.
+        /// Это должно указывать на каталог bin каталога установки GPG.</param>
+        /// <param name="minLibraryVersion">
+        /// Минимально необходимая версия GpgME. Установите значение null, чтобы отключить эту проверку версии.
+        /// </param>
+        /// <param name="minGpgVersion">
+        /// Минимально необходимая версия Gpg. Установите значение null, чтобы отключить эту проверку версии.
+        /// </param>
+        public static void Initialise(string dllPath = null, string installDir = null, string minLibraryVersion = "1.8.0", string minGpgVersion = "2.0.0")
 		{
 			if (Initialised)
 			{
@@ -78,12 +77,12 @@ namespace Gpg.NET
 			}
 			if (dllPath != null)
 			{
-				// Manually load the GpgME DL from a custom path
-				// instead of letting Windows look for it.
-				Kernel32.Load(dllPath);
+                // Вручную загрузить GpgME DLL из пользовательского пути
+                // вместо того, чтобы позволять Windows искать его.
+                Kernel32.Load(dllPath);
 			}
 
-			// Global flags should be set before initialisation
+			// Глобальные флаги должны быть установлены перед инициализацией
 			if (minGpgVersion != null)
 			{
 				if (GpgMeWrapper.gpgme_set_global_flag("require-gnupg", minGpgVersion) != 0)
@@ -99,16 +98,16 @@ namespace Gpg.NET
 					throw new GpgNetException("Failed to set Win32 install dir.");
 				}
 			}
-			// The version check is required as it initialises GpgME
-			Version = GpgMeWrapper.gpgme_check_version(minLibraryVersion);
+            // Проверка версии обязательна, поскольку она инициализирует GpgME
+            Version = GpgMeWrapper.gpgme_check_version(minLibraryVersion);
 			if (Version == null)
 			{
 				throw new GpgNetException("Minimum required GpgME version is not met.");
 			}
-			
-			// Get information about the GPG engines available
-			AvailableEngines = GpgMeHelper.GetEngines();
-			// Get information about the current GPG configuration
+
+            // Получить информацию о доступных движках GPG
+            AvailableEngines = GpgMeHelper.GetEngines();
+			// Получить информацию о текущей конфигурации GPG
 			Homedir = GpgMeWrapper.gpgme_get_dirinfo("homedir");
 			Sysconfdir = GpgMeWrapper.gpgme_get_dirinfo("sysconfdir");
 			Bindir = GpgMeWrapper.gpgme_get_dirinfo("bindir");
@@ -120,25 +119,26 @@ namespace Gpg.NET
 			Initialised = true;
 		}
 
-		/// <summary>
-		/// Ensures the given protocol is available. If it isn't, an exception is thrown.
-		/// </summary>
-		/// <param name="protocol">The <see cref="GpgMeProtocol"/> to check for.</param>
-		/// <exception cref="GpgMeException">Thrown if the given protocol is not available, badly configured, or otherwise unusable.</exception>
-		public static void EnsureProtocol(GpgMeProtocol protocol)
+        /// <summary>
+        /// Гарантирует, что данный протокол доступен. Если это не так, то генерируется исключение.
+        /// </summary>
+        /// <param name="protocol"><См. cref="GpgMeProtocol"/> для проверки.</param>
+        /// <exception cref="GpgMeException">Выбрасывается, если данный протокол недоступен, 
+        /// неправильно настроен или иным образом непригоден для использования.</exception>
+        public static void EnsureProtocol(GpgMeProtocol protocol)
 		{
 			ErrorHandler.Check(GpgMeWrapper.gpgme_engine_check_version(protocol));
 		}
 
-		/// <summary>
-		/// Enable GpgME debugging. This should be done before GpgME is initialised.
-		/// </summary>
-		/// <param name="debugPath">
-		/// The path to the file debug output should be saved to. If this is set to its default of null,
-		/// debug output is saved to a file named <code>gpgme-debug.txt</code> in the current working directory.
-		/// </param>
-		/// <param name="debugLevel">The verbosity level of GpgME. A higher number increases verbosity.</param>
-		public static void EnableDebugging(string debugPath = null, int debugLevel = 9)
+        /// <summary>
+        /// Включите отладку GpgME. Это должно быть сделано до инициализации GpgME.
+        /// </summary>
+        /// <param name="debugPath">
+        /// Путь к файлу debug output должен быть сохранен по адресу. Если для этого параметра по умолчанию установлено значение null,
+        /// выходные данные отладки сохраняются в файле с именем <code>gpgme-debug.txt </code> в текущем рабочем каталоге.
+        /// </param>
+        /// <param name="debugLevel">Уровень детализации GpgME. Большее число увеличивает детализацию.</param>
+        public static void EnableDebugging(string debugPath = null, int debugLevel = 9)
 		{
 			if (Initialised)
 			{

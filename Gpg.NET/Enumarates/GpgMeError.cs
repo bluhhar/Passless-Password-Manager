@@ -1,14 +1,10 @@
-﻿// Disable ReSharper warnings about inconsistent naming.
-// GPG error codes should be the same as ther GpgME equivalents to make troubleshooting easier.
-// ReSharper disable InconsistentNaming
-namespace Gpg.NET
+﻿namespace Gpg.NET
 {
-	/// <summary>
-	/// Enumerates error codes as used by GpgME.
-	/// </summary>
-	public enum GpgMeError
+    /// <summary>
+    /// Перечисляет коды ошибок, используемые GpgME.
+    /// </summary>
+    public enum GpgMeError
 	{
-		// Disable compiler warnings about missing XML documentation.
 #pragma warning disable 1591
 		GPG_ERR_NO_ERROR = 0,
 		GPG_ERR_GENERAL = 1,

@@ -17,10 +17,10 @@ namespace Gpg.NET.Interop
 
 		public IEnumerable<EngineInfo> ToEnumerable()
 		{
-			// First, return the current engine
-			yield return ToEngineInfo();
-			// Next, iterate over the linked list and return all other engines in the list
-			var currentPtr = Next;
+            // Сначала возвращаем текущий движок
+            yield return ToEngineInfo();
+            // Далее выполняем итерацию по связанному списку и верните все остальные движки в списке
+            var currentPtr = Next;
 			while (currentPtr != IntPtr.Zero)
 			{
 				var currentStructure = Marshal.PtrToStructure<GpgMeEngineInfo>(currentPtr);

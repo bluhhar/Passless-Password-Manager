@@ -2,14 +2,14 @@
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Represents a generic error in Gpg.NET.
-	/// </summary>
-	public class GpgNetException : Exception
+    /// <summary>
+    /// Представляет собой общую ошибку в Gpg.NET .
+    /// </summary>
+    public class GpgNetException : Exception
 	{
-		/// <summary>
-		/// Initialises a new instance of the <see cref="GpgNetException"/> class.
-		/// </summary>
-		public GpgNetException(string message) : base(message) {}
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <см. cref="GpgNetException"/>.
+        /// </summary>
+        public GpgNetException(string message) : base(message) {}
 	}
 }

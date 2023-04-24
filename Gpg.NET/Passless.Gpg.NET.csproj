@@ -60,7 +60,7 @@
     <Compile Include="Enumarates\GpgMeError.cs" />
     <Compile Include="Exceptions\GpgMeException.cs" />
     <Compile Include="Exceptions\GpgNetException.cs" />
-    <Compile Include="Interop\GpgMeKey.cs" />
+    <Compile Include="Structurs\GpgMeKey.cs" />
     <Compile Include="Enumarates\GpgMeProtocol.cs" />
     <Compile Include="Classes\GpgSubkey.cs" />
     <Compile Include="Interop\AnsiCharPtrMarshaler.cs" />
@@ -68,12 +68,12 @@
     <Compile Include="Enumarates\GpgKeylistMode.cs" />
     <Compile Include="Interop\Kernel32.cs" />
     <Compile Include="Enumarates\PublicKeyAlgorithm.cs" />
-    <Compile Include="Interop\GpgMeKeySig.cs" />
-    <Compile Include="Interop\GpgMeSigNotation.cs" />
+    <Compile Include="Structurs\GpgMeKeySig.cs" />
+    <Compile Include="Structurs\GpgMeSigNotation.cs" />
     <Compile Include="Enumarates\GpgMeSigNotationFlags.cs" />
-    <Compile Include="Interop\GpgMeSubkey.cs" />
-    <Compile Include="Interop\GpgMeTofuInfo.cs" />
-    <Compile Include="Interop\GpgMeUserId.cs" />
+    <Compile Include="Structurs\GpgMeSubkey.cs" />
+    <Compile Include="Structurs\GpgMeTofuInfo.cs" />
+    <Compile Include="Structurs\GpgMeUserId.cs" />
     <Compile Include="Classes\GpgNet.cs" />
     <Compile Include="Enumarates\GpgValidity.cs" />
     <Compile Include="Interop\GpgMeWrapper.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Classes\MemoryGpgBuffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\ExtensionMethods.cs" />
-    <Compile Include="Interop\GpgMeEngineInfo.cs" />
+    <Compile Include="Structurs\GpgMeEngineInfo.cs" />
     <Compile Include="Utilities\Helpers.cs" />
   </ItemGroup>
   <ItemGroup />
