@@ -32,6 +32,8 @@ namespace Passless.WinForm
                 comboBoxWordsSets.Items.Add(file.Replace(_pathToFiles, ""));
             }
             textBoxSeparator.Enabled = false;
+            trackBarCountWords.Enabled = false;
+            textBoxCountWords.Enabled = false;
         }
 
         private void buttonAddPassword_Click(object sender, EventArgs e)
@@ -43,6 +45,7 @@ namespace Passless.WinForm
             else
             {
                 AddPassword.AddPasswordToRepository(_path, _keyOwner, textBoxFileName.Text, textBoxPassword.Text);
+                MessageBox.Show("Пароль успешно добавлен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -75,6 +78,8 @@ namespace Passless.WinForm
             words = temp.ToArray();
             _words = words.ToList();
             textBoxSeparator.Enabled = true;
+            trackBarCountWords.Enabled = true;
+            textBoxCountWords.Enabled = true;
             textBoxPassword.Text = PassphraseGenerator.RandomPassphrase(int.Parse(textBoxCountWords.Text), words, textBoxSeparator.Text);
         }
 
@@ -89,10 +94,12 @@ namespace Passless.WinForm
             if(trackBar == trackBarCount)
             {
                 textBoxCount.Text = trackBarCount.Value.ToString();
+                textBoxPassword.Text = PasswordGenerator.RandomPassword(int.Parse(textBoxCount.Text), textBoxOtherChars.Text, _allowed);
             }
             else
             {
                 textBoxCountWords.Text = trackBarCountWords.Value.ToString();
+                textBoxPassword.Text = PassphraseGenerator.RandomPassphrase(int.Parse(textBoxCountWords.Text), _words.ToArray(), textBoxSeparator.Text);
             }
         }
 
@@ -115,10 +122,12 @@ namespace Passless.WinForm
             if (textBox == textBoxCount)
             {
                 trackBarCount.Value = int.Parse(textBoxCount.Text);
+                textBoxPassword.Text = PasswordGenerator.RandomPassword(int.Parse(textBoxCount.Text), textBoxOtherChars.Text, _allowed);
             }
             else
             {
                 trackBarCountWords.Value = int.Parse(textBoxCountWords.Text);
+                textBoxPassword.Text = PassphraseGenerator.RandomPassphrase(int.Parse(textBoxCountWords.Text), _words.ToArray(), textBoxSeparator.Text);
             }
         }
 
