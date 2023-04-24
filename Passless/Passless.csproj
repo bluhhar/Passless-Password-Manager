@@ -45,13 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\FileHelper\FileCreates.cs" />
+    <Compile Include="Classes\Passwords\GetPassword.cs" />
+    <Compile Include="Modules\FileHelper.cs" />
+    <Compile Include="Classes\Passwords\AddPassword.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>

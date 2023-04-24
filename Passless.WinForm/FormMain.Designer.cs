@@ -34,16 +34,16 @@
             this.passlessPasswordManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chooseLocationItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.signToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.addPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
-            this.chooseLocationItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.signToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.keyTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.contextMenuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             this.toolStripSeparator1,
             this.quitToolStripMenuItem});
             this.contextMenuMain.Name = "contextMenuMain";
-            this.contextMenuMain.Size = new System.Drawing.Size(202, 176);
+            this.contextMenuMain.Size = new System.Drawing.Size(202, 154);
             // 
             // passlessPasswordManagerToolStripMenuItem
             // 
@@ -91,6 +91,35 @@
             this.passwordStoreToolStripMenuItem.Name = "passwordStoreToolStripMenuItem";
             this.passwordStoreToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
             this.passwordStoreToolStripMenuItem.Text = "Репозиторий";
+            // 
+            // chooseLocationItem
+            // 
+            this.chooseLocationItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.chooseLocationItem.Name = "chooseLocationItem";
+            this.chooseLocationItem.Size = new System.Drawing.Size(232, 24);
+            this.chooseLocationItem.Text = "Изменить расположение";
+            this.chooseLocationItem.Click += new System.EventHandler(this.chooseLocationItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.toolStripSeparator4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(229, 6);
+            // 
+            // signToolStripMenuItem
+            // 
+            this.signToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.signToolStripMenuItem.Name = "signToolStripMenuItem";
+            this.signToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.signToolStripMenuItem.Text = "Подпись";
+            // 
+            // keyTextBox
+            // 
+            this.keyTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Size = new System.Drawing.Size(140, 23);
+            this.keyTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyTextBox_KeyPress);
             // 
             // toolStripSeparator2
             // 
@@ -138,35 +167,7 @@
             this.notifyIconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconMain.Icon")));
             this.notifyIconMain.Text = "Passless";
             this.notifyIconMain.Visible = true;
-            // 
-            // chooseLocationItem
-            // 
-            this.chooseLocationItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.chooseLocationItem.Name = "chooseLocationItem";
-            this.chooseLocationItem.Size = new System.Drawing.Size(232, 24);
-            this.chooseLocationItem.Text = "Изменить расположение";
-            this.chooseLocationItem.Click += new System.EventHandler(this.chooseLocationItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.toolStripSeparator4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(229, 6);
-            // 
-            // signToolStripMenuItem
-            // 
-            this.signToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.signToolStripMenuItem.Name = "signToolStripMenuItem";
-            this.signToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.signToolStripMenuItem.Text = "Подпись";
-            // 
-            // keyTextBox
-            // 
-            this.keyTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.keyTextBox.Name = "keyTextBox";
-            this.keyTextBox.Size = new System.Drawing.Size(140, 23);
-            this.keyTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyTextBox_KeyPress);
+            this.notifyIconMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconMain_MouseClick);
             // 
             // FormMain
             // 
