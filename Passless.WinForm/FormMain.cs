@@ -72,7 +72,6 @@ namespace Passless.WinForm
             formAddPassword.Show();
         }
 
-        //TODO:сделать чтобы путь запоминался
         private void chooseLocationItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();

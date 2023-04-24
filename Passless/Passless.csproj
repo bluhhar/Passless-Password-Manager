@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Passwords\GetPassword.cs" />
+    <Compile Include="Classes\Random\PassphraseGenerator.cs" />
+    <Compile Include="Classes\Random\PasswordGenerator.cs" />
     <Compile Include="Modules\FileHelper.cs" />
     <Compile Include="Classes\Passwords\AddPassword.cs" />
     <Compile Include="Controller.cs" />
