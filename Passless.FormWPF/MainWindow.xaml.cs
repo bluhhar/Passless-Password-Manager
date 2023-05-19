@@ -56,6 +56,15 @@ namespace Passless.FormWPF
 
             passwordListBox.ItemsSource = passwords;
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E)
+            {
+
+            }
+        }
+
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchText = searchBox.Text.ToLower();
@@ -92,7 +101,7 @@ namespace Passless.FormWPF
                 Thread t = new Thread(() =>
                 {
                     Thread.Sleep(30000);
-                    Clipboard.Clear();
+                    Clipboard.Clear(); //В ВПФ НЕ РАБОТАЕТ СКОРЕЕ ВСЕГО ПРОТЕСТИРОВАТЬ НАДО
                 });
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
