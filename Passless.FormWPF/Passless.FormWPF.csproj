@@ -104,5 +104,11 @@
     <Folder Include="MVVM\View\" />
     <Folder Include="Theme\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Passless\Passless.csproj">
+      <Project>{5106db76-b63c-4a3d-a004-56343393f1fd}</Project>
+      <Name>Passless</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
