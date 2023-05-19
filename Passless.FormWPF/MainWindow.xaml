@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Passless.FormWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Height="300" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#80000000"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <Border BorderBrush="White" BorderThickness="0.6">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="265"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0">
+                <Border BorderBrush="White" BorderThickness="0,0,0,0.6" Width ="480" VerticalAlignment="Bottom" />
+            </Border>
+
+            <TextBox Width="480"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Center"
+                     Margin="5"
+                     Grid.Row="0"/>
+
+            <Border Grid.Row="1">
+
+            </Border>
+        </Grid> 
+    </Border>
 </Window>

@@ -476,7 +476,7 @@
             this.MaximizeBox = false;
             this.Name = "FormAddPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAddPassword";
+            this.Text = "Добавление пароля";
             this.tabControlGenerator.ResumeLayout(false);
             this.tabPagePassword.ResumeLayout(false);
             this.tabPagePassword.PerformLayout();
