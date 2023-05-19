@@ -22,15 +22,24 @@
                 <Border BorderBrush="White" BorderThickness="0,0,0,0.6" Width ="480" VerticalAlignment="Bottom" />
             </Border>
 
-            <TextBox Width="480"
+            <TextBox x:Name="searchBox"
+                     Width="480"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Center"
                      Margin="5"
-                     Grid.Row="0"/>
+                     Grid.Row="0"
+                     TextChanged="SearchBox_TextChanged"/>
 
-            <Border Grid.Row="1">
-
-            </Border>
+            <ListBox x:Name="passwordListBox"
+                     SelectionChanged="PasswordListBox_SelectionChanged"
+                     Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
         </Grid> 
     </Border>
 </Window>

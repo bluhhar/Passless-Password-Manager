@@ -20,9 +20,53 @@ namespace Passless.FormWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<string> passwords; // Ваши пароли
         public MainWindow()
         {
             InitializeComponent();
+            passwords = new List<string>()
+            {
+                "githubPassword1",
+                "githubPassword2",
+                "otherPassword1",
+                "otherPassword2"
+            };
+            passwordListBox.ItemsSource = passwords;
+        }
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = searchBox.Text.ToLower();
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                passwordListBox.ItemsSource = passwords;
+            }
+            else
+            {
+                // Фильтруем пароли по поисковому запросу
+                List<string> filteredPasswords = new List<string>();
+                foreach (string password in passwords)
+                {
+                    if (password.ToLower().Contains(searchText))
+                    {
+                        filteredPasswords.Add(password);
+                    }
+                }
+
+                // Отображаем отфильтрованные пароли
+                passwordListBox.ItemsSource = filteredPasswords;
+            }
+        }
+
+        private void PasswordListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Обработка выбранного пароля
+            string selectedPassword = passwordListBox.SelectedItem as string;
+            if (selectedPassword != null)
+            {
+                // Добавьте вашу логику обработки выбранного пароля здесь
+                MessageBox.Show("Выбран пароль: " + selectedPassword);
+            }
         }
     }
 }
