@@ -43,8 +43,11 @@
                      Foreground="White"
                      FontFamily="Consolas" FontSize="16"
                      Width="480"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      Margin="5"
                      Grid.Row="1">
+                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}" />
@@ -76,7 +79,7 @@
                     </Style>
                 </ListBox.ItemContainerStyle>
             </ListBox>
-            
+
         </Grid> 
     </Border>
 </Window>
