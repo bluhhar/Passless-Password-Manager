@@ -47,7 +47,7 @@ namespace Passless.FormWPF.MVVM.View
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close(); // Закрыть текущую форму
+            Close();
         }
     }
 }
