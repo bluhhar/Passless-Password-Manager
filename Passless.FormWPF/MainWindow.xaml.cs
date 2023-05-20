@@ -1,4 +1,5 @@
 ﻿using Passless.Classes.Passwords;
+using Passless.FormWPF.MVVM.View;
 using Passless.Modules;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Passless.FormWPF
         private string _selectedLocationPath = Environment.ExpandEnvironmentVariables(@"%userprofile%\.passless\");
         private string _keyOwner = null;
 
-        private List<string> passwords; // Ваши пароли
+        private List<string> passwords;
 
         private void LoadPasswords()
         {
@@ -45,15 +46,10 @@ namespace Passless.FormWPF
             InitializeComponent();
             _keyOwner = FileHelper.Reader(_selectedLocationPath);
             Controller.Activation();
-            //passwords = new List<string>()
-            //{
-            //    "githubPassword1",
-            //    "githubPassword2",
-            //    "otherPassword1",
-            //    "otherPassword2"
-            //};
             LoadPasswords();
-
+            searchBox.Focus(); //ВЫБИРАТЬ ТЕКСТБОКС АКТИВИРОВАННЫМ ПРИ ЗАГРУЗКИ ФОРМЫ
+            //TODO: сделать чтобы фокус всегда был на серчбоксе чтобы к примеру использовать только
+            //клавиатуру
             passwordListBox.ItemsSource = passwords;
         }
 
@@ -67,6 +63,7 @@ namespace Passless.FormWPF
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            LoadPasswords();//ПЕРЕДЕЛАТЬ ЧТОБЫ НЕ ВСЕГДА ВЫЗЫВАЛСЯ А К ПРИМЕРУ КОГДА ДОБАВИЛИ ПАРОЛЬ
             string searchText = searchBox.Text.ToLower();
 
             if (string.IsNullOrEmpty(searchText))
@@ -84,7 +81,7 @@ namespace Passless.FormWPF
                         filteredPasswords.Add(password);
                     }
                 }
-
+                filteredPasswords.Add("Add new password");
                 // Отображаем отфильтрованные пароли
                 passwordListBox.ItemsSource = filteredPasswords;
             }
@@ -94,7 +91,18 @@ namespace Passless.FormWPF
         {
             // Обработка выбранного пароля
             string selectedPassword = passwordListBox.SelectedItem as string;
-            if (selectedPassword != null)
+            if(selectedPassword == "Add new password")
+            {
+                AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, "bluh@btwow.ru", searchBox.Text);
+                bool? result = addPasswordWindow.ShowDialog();
+
+                // Проверяем результат диалогового окна
+                if (result == true)
+                {
+                    LoadPasswords();
+                }
+            }
+            else if (selectedPassword != "Add new password" && selectedPassword != null)
             {
                 string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + selectedPassword);
                 Clipboard.SetText(password);

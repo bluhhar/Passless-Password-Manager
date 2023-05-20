@@ -31,7 +31,8 @@
                      Background="Transparent"
                      BorderThickness="0"
                      Foreground="White"
-                     FontFamily="Arial" FontSize="16"
+                     FontFamily="Consolas" FontSize="16"
+                     CaretBrush="White"
                      Grid.Row="0"
                      TextChanged="SearchBox_TextChanged"/>
 
@@ -40,7 +41,7 @@
                      Background="Transparent"
                      BorderThickness="0"
                      Foreground="White"
-                     FontFamily="Arial" FontSize="16"
+                     FontFamily="Consolas" FontSize="16"
                      Width="480"
                      Margin="5"
                      Grid.Row="1">
