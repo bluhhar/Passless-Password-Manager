@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xaml.Schema;
 
 namespace Passless.FormWPF.MVVM.View
 {
@@ -36,6 +37,11 @@ namespace Passless.FormWPF.MVVM.View
         {
             AddPassword.AddPasswordToRepository(_path, _keyOwner, _fileName, passwordTextBox.Text);
             DialogResult = true;
+        }
+        
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            int allowed = 1;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

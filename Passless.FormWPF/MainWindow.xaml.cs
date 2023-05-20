@@ -94,6 +94,8 @@ namespace Passless.FormWPF
             if(selectedPassword == "Add new password")
             {
                 AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, "bluh@btwow.ru", searchBox.Text);
+                addPasswordWindow.Owner = this; // Установка владельца новой формы
+                addPasswordWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner; // Установка положения новой формы в центре владельца
                 bool? result = addPasswordWindow.ShowDialog();
 
                 // Проверяем результат диалогового окна
