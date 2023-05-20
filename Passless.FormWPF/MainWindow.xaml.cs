@@ -81,7 +81,7 @@ namespace Passless.FormWPF
                         filteredPasswords.Add(password);
                     }
                 }
-                filteredPasswords.Add("Add new password");
+                filteredPasswords.Add("Add new password...");
                 // Отображаем отфильтрованные пароли
                 passwordListBox.ItemsSource = filteredPasswords;
             }
@@ -91,7 +91,7 @@ namespace Passless.FormWPF
         {
             // Обработка выбранного пароля
             string selectedPassword = passwordListBox.SelectedItem as string;
-            if(selectedPassword == "Add new password")
+            if(selectedPassword == "Add new password...")
             {
                 AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, "bluh@btwow.ru", searchBox.Text);
                 addPasswordWindow.Owner = this; // Установка владельца новой формы
@@ -104,7 +104,7 @@ namespace Passless.FormWPF
                     LoadPasswords();
                 }
             }
-            else if (selectedPassword != "Add new password" && selectedPassword != null)
+            else if (selectedPassword != "Add new password..." && selectedPassword != null)
             {
                 string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + selectedPassword);
                 Clipboard.SetText(password);
@@ -115,7 +115,6 @@ namespace Passless.FormWPF
                 });
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
-                //MessageBox.Show("Выбран пароль: " + selectedPassword);
             }
         }
     }

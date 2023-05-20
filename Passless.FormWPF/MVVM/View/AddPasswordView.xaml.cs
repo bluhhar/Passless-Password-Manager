@@ -41,7 +41,8 @@ namespace Passless.FormWPF.MVVM.View
         
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            int allowed = 1;
+            CheckBox checkBox = (CheckBox)sender;
+            int allowed = checkBox.IsChecked == true ? 1 : 0;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
