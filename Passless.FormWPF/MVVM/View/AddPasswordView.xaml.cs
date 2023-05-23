@@ -39,21 +39,32 @@ namespace Passless.FormWPF.MVVM.View
             DialogResult = true;
         }
 
+        private void PasswordGenerator_CheckBoxStateChanged(object sender, bool isChecked)
+        {
+            // Обработка изменения состояния CheckBox из UserControl
+            // isChecked содержит текущее состояние CheckBox
+        }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            double value = sliderLength.Value;
-            textBoxLength.Text = value.ToString();
+            if (textBoxLength != null) // Проверяем, что textBoxLength не равен null
+            {
+                double value = sliderLength.Value;
+                textBoxLength.Text = value.ToString();
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            double value;
-            if (double.TryParse(textBoxLength.Text, out value))
+            if (textBoxLength != null && sliderLength != null) // Проверяем, что и textBoxLength, и sliderLength не равны null
             {
-                if (value >= sliderLength.Minimum && value <= sliderLength.Maximum)
+                double value;
+                if (double.TryParse(textBoxLength.Text, out value))
                 {
-                    sliderLength.Value = value;
+                    if (value >= sliderLength.Minimum && value <= sliderLength.Maximum)
+                    {
+                        sliderLength.Value = value;
+                    }
                 }
             }
         }
