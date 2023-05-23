@@ -20,20 +20,9 @@ namespace Passless.FormWPF.MVVM.View
     /// </summary>
     public partial class PasswordGenerator : UserControl
     {
-        public event EventHandler<bool> CheckBoxStateChanged;
         public PasswordGenerator()
         {
             InitializeComponent();
-        }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckBoxStateChanged?.Invoke(this, true);
-        }
-
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CheckBoxStateChanged?.Invoke(this, false);
         }
     }
 }

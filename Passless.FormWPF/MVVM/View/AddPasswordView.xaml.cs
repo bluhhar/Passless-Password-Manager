@@ -39,12 +39,6 @@ namespace Passless.FormWPF.MVVM.View
             DialogResult = true;
         }
 
-        private void PasswordGenerator_CheckBoxStateChanged(object sender, bool isChecked)
-        {
-            // Обработка изменения состояния CheckBox из UserControl
-            // isChecked содержит текущее состояние CheckBox
-        }
-
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (textBoxLength != null) // Проверяем, что textBoxLength не равен null
