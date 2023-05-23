@@ -38,11 +38,24 @@ namespace Passless.FormWPF.MVVM.View
             AddPassword.AddPasswordToRepository(_path, _keyOwner, _fileName, passwordTextBox.Text);
             DialogResult = true;
         }
-        
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            CheckBox checkBox = (CheckBox)sender;
-            int allowed = checkBox.IsChecked == true ? 1 : 0;
+            double value = sliderLength.Value;
+            textBoxLength.Text = value.ToString();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double value;
+            if (double.TryParse(textBoxLength.Text, out value))
+            {
+                if (value >= sliderLength.Minimum && value <= sliderLength.Maximum)
+                {
+                    sliderLength.Value = value;
+                }
+            }
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

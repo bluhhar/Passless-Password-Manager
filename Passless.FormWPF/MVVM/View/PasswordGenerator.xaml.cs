@@ -24,23 +24,5 @@ namespace Passless.FormWPF.MVVM.View
         {
             InitializeComponent();
         }
-
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            double value = slider.Value;
-            textBox.Text = value.ToString();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            double value;
-            if (double.TryParse(textBox.Text, out value))
-            {
-                if (value >= slider.Minimum && value <= slider.Maximum)
-                {
-                    slider.Value = value;
-                }
-            }
-        }
     }
 }
