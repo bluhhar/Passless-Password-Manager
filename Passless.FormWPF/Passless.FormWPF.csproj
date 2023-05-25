@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\PasswordManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\View\AddPasswordView.xaml.cs">
@@ -85,6 +89,9 @@
     </Compile>
     <Compile Include="MVVM\View\PasswordGenerator.xaml.cs">
       <DependentUpon>PasswordGenerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\PasswordManager.xaml.cs">
+      <DependentUpon>PasswordManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
