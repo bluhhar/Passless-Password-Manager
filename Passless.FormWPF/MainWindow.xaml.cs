@@ -36,10 +36,9 @@ namespace Passless.FormWPF
                 {
                     if (passwordManager.WindowState == WindowState.Minimized)
                     {
-                        passwordManager.WindowState = WindowState.Normal; // Восстанавливаем состояние окна, если оно было свернуто
+                        passwordManager.WindowState = WindowState.Normal;
                     }
-
-                    passwordManager.Activate(); // Перемещаем фокус на окно PasswordManager
+                    passwordManager.Activate();
                 }
                 else
                 {

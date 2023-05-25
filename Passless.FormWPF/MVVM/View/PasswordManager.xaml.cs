@@ -109,5 +109,13 @@ namespace Passless.FormWPF.MVVM.View
                 t.Start();
             }
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E)
+            {
+                Close();
+            }
+        }
     }
 }
