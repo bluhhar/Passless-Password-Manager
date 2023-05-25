@@ -10,7 +10,10 @@ namespace Passless
     {
         public static void Activation()
         {
-            GpgNet.Initialise(@"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll");
+            if (!GpgNet.Initialised)
+            {
+                GpgNet.Initialise(@"C:\Program Files (x86)\GnuPG\bin\libgpgme-11.dll");
+            }
         }
     }
 }

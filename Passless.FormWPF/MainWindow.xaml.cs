@@ -30,8 +30,22 @@ namespace Passless.FormWPF
         {
             if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E)
             {
-                PasswordManager passwordManager = new PasswordManager();
-                passwordManager.Show();
+                PasswordManager passwordManager = Application.Current.Windows.OfType<PasswordManager>().FirstOrDefault();
+
+                if (passwordManager != null)
+                {
+                    if (passwordManager.WindowState == WindowState.Minimized)
+                    {
+                        passwordManager.WindowState = WindowState.Normal; // Восстанавливаем состояние окна, если оно было свернуто
+                    }
+
+                    passwordManager.Activate(); // Перемещаем фокус на окно PasswordManager
+                }
+                else
+                {
+                    passwordManager = new PasswordManager();
+                    passwordManager.Show();
+                }
             }
         }
     }
