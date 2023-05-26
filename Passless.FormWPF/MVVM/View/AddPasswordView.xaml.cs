@@ -35,8 +35,24 @@ namespace Passless.FormWPF.MVVM.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddPassword.AddPasswordToRepository(_path, _keyOwner, _fileName, passwordTextBox.Text);
-            DialogResult = true;
+            string result = "";
+            if (string.IsNullOrEmpty(loginTextBox.Text))
+            {
+                result = "_:";
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(loginTextBox.Text))
+                {
+                    result += "_";
+                }
+                else
+                {
+                    result = loginTextBox.Text + ":" + passwordTextBox.Text;
+                    AddPassword.AddPasswordToRepository(_path, _keyOwner, _fileName, result);
+                    DialogResult = true;
+                }
+            }
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

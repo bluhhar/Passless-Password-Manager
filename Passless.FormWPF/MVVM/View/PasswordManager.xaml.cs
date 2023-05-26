@@ -79,7 +79,20 @@ namespace Passless.FormWPF.MVVM.View
             }
         }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E)
+            {
+                Close();
+            }
+        }
+
         private void PasswordListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void PasswordListBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // Обработка выбранного пароля
             string selectedPassword = passwordListBox.SelectedItem as string;
@@ -98,7 +111,7 @@ namespace Passless.FormWPF.MVVM.View
             }
             else if (selectedPassword != "Add new password..." && selectedPassword != null)
             {
-                string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + selectedPassword);
+                string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + selectedPassword, true);
                 Clipboard.SetText(password);
                 Thread t = new Thread(() =>
                 {
@@ -110,11 +123,34 @@ namespace Passless.FormWPF.MVVM.View
             }
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void PasswordListBoxItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E)
+            // Обработка выбранного пароля
+            string selectedPassword = passwordListBox.SelectedItem as string;
+            if (selectedPassword == "Add new password...")
             {
-                Close();
+                AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, "bluh@btwow.ru", searchBox.Text);
+                addPasswordWindow.Owner = this; // Установка владельца новой формы
+                addPasswordWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner; // Установка положения новой формы в центре владельца
+                bool? result = addPasswordWindow.ShowDialog();
+
+                // Проверяем результат диалогового окна
+                if (result == true)
+                {
+                    LoadPasswords();
+                }
+            }
+            else if (selectedPassword != "Add new password..." && selectedPassword != null)
+            {
+                string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + selectedPassword, false);
+                Clipboard.SetText(password);
+                Thread t = new Thread(() =>
+                {
+                    Thread.Sleep(30000);
+                    Clipboard.Clear(); //В ВПФ НЕ РАБОТАЕТ СКОРЕЕ ВСЕГО ПРОТЕСТИРОВАТЬ НАДО
+                });
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
             }
         }
     }
