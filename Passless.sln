@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passless.Gpg.NET", "Gpg.NET
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passless.WinForm", "Passless.WinForm\Passless.WinForm.csproj", "{EFB2EC78-22C4-41F4-AD4F-C1739D10B294}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passless.CryptoPRO", "Passless.CryptoPRO\Passless.CryptoPRO.csproj", "{DB95921B-5C22-4235-A2D6-C652E1A8A123}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{EFB2EC78-22C4-41F4-AD4F-C1739D10B294}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFB2EC78-22C4-41F4-AD4F-C1739D10B294}.Release|x86.ActiveCfg = Release|Any CPU
 		{EFB2EC78-22C4-41F4-AD4F-C1739D10B294}.Release|x86.Build.0 = Release|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Debug|x86.Build.0 = Debug|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Release|x86.ActiveCfg = Release|Any CPU
+		{DB95921B-5C22-4235-A2D6-C652E1A8A123}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

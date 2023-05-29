@@ -130,5 +130,35 @@ namespace Passless.FormWPF.MVVM.View
                 t.Start();
             }
         }
+
+        private void Window_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
+            {
+                if (passwordListBox.SelectedIndex > 0)
+                {
+                    passwordListBox.Focus();
+                    passwordListBox.SelectedIndex--;
+                    passwordListBox.ScrollIntoView(passwordListBox.SelectedItem);
+                }
+            }
+            else if (e.Key == Key.Down)
+            {
+                if (passwordListBox.SelectedIndex < passwordListBox.Items.Count - 1)
+                {
+                    passwordListBox.Focus();
+                    passwordListBox.SelectedIndex++;
+                    passwordListBox.ScrollIntoView(passwordListBox.SelectedItem);
+                }
+            }
+            else if (e.Key == Key.Left)
+            {
+                HandleSelectedPassword(true);
+            }
+            else if (e.Key == Key.Right)
+            {
+                HandleSelectedPassword(false);
+            }
+        }
     }
 }

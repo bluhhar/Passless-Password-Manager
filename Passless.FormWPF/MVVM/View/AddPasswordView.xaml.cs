@@ -24,6 +24,7 @@ namespace Passless.FormWPF.MVVM.View
         private string _path;
         private string _keyOwner;
         private string _fileName;
+
         public AddPasswordView(string path, string keyOwner, 
             string fileName)
         {
