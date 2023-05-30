@@ -33,7 +33,7 @@ namespace Passless.WinForm
                 var item = getPasswordToolStripMenuItem.DropDownItems.Add(file.Name);
                 item.Click += (object snder, EventArgs evnt) =>
                 {
-                    string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + file.Name, true);
+                    string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + file.Name, false);
                     Clipboard.SetText(password);
                     Thread t = new Thread(() =>
                     {

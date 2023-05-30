@@ -159,6 +159,11 @@ namespace Passless.FormWPF.MVVM.View
             {
                 HandleSelectedPassword(false);
             }
+            else if (e.Key == Key.Delete)
+            {
+                string selectedPassword = passwordListBox.SelectedItem as string;
+                
+            }
         }
     }
 }

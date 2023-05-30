@@ -44,5 +44,12 @@
     <Compile Include="CryproPROContextExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="Enumarates\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Structurs\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

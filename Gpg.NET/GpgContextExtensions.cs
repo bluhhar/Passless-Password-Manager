@@ -7,21 +7,21 @@ using System.Text;
 
 namespace Gpg.NET
 {
-	/// <summary>
-	/// Contains extension methods for use with a <see cref="GpgContext"/>
-	/// </summary>
-	public static class GpgContextExtensions
+    /// <summary>
+    /// Содержит методы расширения для использования с <see cref="GpgContext"/>
+    /// </summary>
+    public static class GpgContextExtensions
 	{
-		/// <summary>
-		/// Encrypts a string and writes the ciphertext to a file.
-		/// </summary>
-		/// <param name="context">The <see cref="GpgContext"/> to operate on.</param>
-		/// <param name="plaintext">The plaintext to be encrypted.</param>
-		/// <param name="outputFilePath">The path where the encrypted file should be saved.</param>
-		/// <param name="encryptFlags">The encryption flags to be used.</param>
-		/// <param name="overwrite">Whether the existing file should be overwritten if a file already exists at <paramref name="outputFilePath"/>.</param>
-		/// <param name="recipients">The GPG keys for which the data should be encrypted.</param>
-		public static void EncryptString(this GpgContext context, string plaintext, string outputFilePath, IEnumerable<GpgKey> recipients, EncryptFlags encryptFlags = EncryptFlags.None, bool overwrite = false)
+        /// <summary>
+        /// Шифрует строку и записывает зашифрованный текст в файл.
+        /// </summary>
+        /// <param name="context">Для работы с <see cref="GpgContext"/></param>
+        /// <param name="plaintext">ТЕкст который надо зашифровать</param>
+        /// <param name="outputFilePath">Файл в который будет сохранен результат</param>
+        /// <param name="encryptFlags">Используемые флаги шифрования.</param>
+        /// <param name="overwrite">Следует ли перезаписывать существующий файл, если файл уже существует по адресу <paramref name="outputFilePath"/>.</param>
+        /// <param name="recipients">Ключи GPG, для которых данные должны быть зашифрованы.</param>
+        public static void EncryptString(this GpgContext context, string plaintext, string outputFilePath, IEnumerable<GpgKey> recipients, EncryptFlags encryptFlags = EncryptFlags.None, bool overwrite = false)
 		{
 			using (var file = File.Open(outputFilePath, overwrite ? FileMode.Create : FileMode.CreateNew))
 			using (var plain = MemoryGpgBuffer.CreateFromString(plaintext))
@@ -32,7 +32,7 @@ namespace Gpg.NET
 		}
 
 		/// <summary>
-		/// Decrypts a file and returns its contents.
+		/// Расшифровывает файл и возвращает расшифрованный текст
 		/// </summary>
 		/// <param name="context">The <see cref="GpgContext"/> to operate on.</param>
 		/// <param name="inputFilePath">The path to the encrypted file.</param>
@@ -45,14 +45,14 @@ namespace Gpg.NET
 			}
 		}
 
-		/// <summary>
-		/// Decrypts a file and writes its decrypted content to another file.
-		/// </summary>
-		/// <param name="context">The <see cref="GpgContext"/> to operate on.</param>
-		/// <param name="inputFilePath">The path to the encrypted file.</param>
-		/// <param name="outputFilePath">The path where the decrypted file should be saved.</param>
-		/// <param name="overwrite">Whether the existing file should be overwritten if a file already exists at <paramref name="outputFilePath"/>.</param>
-		public static void DecryptFile(this GpgContext context, string inputFilePath, string outputFilePath, bool overwrite = false)
+        /// <summary>
+        /// Decrypts a file and writes its decrypted content to another file.
+        /// </summary>
+        /// <param name="context">Для работы с <see cref="GpgContext"/></param>
+        /// <param name="inputFilePath">Путь к зашифрованному файлу.</param>
+        /// <param name="outputFilePath">Путь куда будет сохранен расшифрованный файл</param>
+        /// <param name="overwrite">Следует ли перезаписывать существующий файл, если файл уже существует по адресу <paramref name="outputFilePath"/>.</param>
+        public static void DecryptFile(this GpgContext context, string inputFilePath, string outputFilePath, bool overwrite = false)
 		{
 			using (var file = File.Open(outputFilePath, overwrite ? FileMode.Create : FileMode.CreateNew))
 			using (var cipher = MemoryGpgBuffer.CreateFromFile(inputFilePath))
@@ -62,16 +62,16 @@ namespace Gpg.NET
 			}
 		}
 
-		/// <summary>
-		/// Encrypts a file and writes the ciphertext to another file.
-		/// </summary>
-		/// <param name="context">The <see cref="GpgContext"/> to operate on.</param>
-		/// <param name="inputFilePath">The path to the unencrypted file.</param>
-		/// <param name="outputFilePath">The path where the encrypted file should be saved.</param>
-		/// <param name="encryptFlags">The encryption flags to be used.</param>
-		/// <param name="overwrite">Whether the existing file should be overwritten if a file already exists at <paramref name="outputFilePath"/>.</param>
-		/// <param name="recipients">The GPG keys for which the data should be encrypted.</param>
-		public static void EncryptFile(this GpgContext context, string inputFilePath, string outputFilePath, IEnumerable<GpgKey> recipients, EncryptFlags encryptFlags = EncryptFlags.None, bool overwrite = false)
+        /// <summary>
+        /// Зашифровывает файл с записывает зашифрованный текст в другой файл
+        /// </summary>
+        /// <param name="context">Для работы с <see cref="GpgContext"/></param>
+        /// <param name="inputFilePath">Путь к файлу который надо зашифровать</param>
+        /// <param name="outputFilePath">Путь к выходному файл</param>
+        /// <param name="encryptFlags">Используемые флаги шифрования</param>
+        /// <param name="overwrite">Следует ли перезаписывать существующий файл, если файл уже существует по адресу <paramref name="outputFilePath"/>.</param>
+        /// <param name="recipients">Ключи GPG, для которых данные должны быть зашифрованы.</param>
+        public static void EncryptFile(this GpgContext context, string inputFilePath, string outputFilePath, IEnumerable<GpgKey> recipients, EncryptFlags encryptFlags = EncryptFlags.None, bool overwrite = false)
 		{
 			using (var file = File.Open(outputFilePath, overwrite ? FileMode.Create : FileMode.CreateNew))
 			using (var plain = MemoryGpgBuffer.CreateFromFile(inputFilePath))
