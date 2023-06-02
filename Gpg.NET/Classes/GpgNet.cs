@@ -64,10 +64,10 @@ namespace Gpg.NET
         /// <param name="installDir">Если задано, переопределяет каталог установки GpgME по умолчанию.
         /// Это должно указывать на каталог bin каталога установки GPG.</param>
         /// <param name="minLibraryVersion">
-        /// Минимально необходимая версия GpgME. Установите значение null, чтобы отключить эту проверку версии.
+        /// Минимально необходимая версия GpgME. Установить значение null, чтобы отключить эту проверку версии.
         /// </param>
         /// <param name="minGpgVersion">
-        /// Минимально необходимая версия Gpg. Установите значение null, чтобы отключить эту проверку версии.
+        /// Минимально необходимая версия Gpg. Устоновить значение null, чтобы отключить эту проверку версии.
         /// </param>
         public static void Initialise(string dllPath = null, string installDir = null, string minLibraryVersion = "1.8.0", string minGpgVersion = "2.0.0")
 		{

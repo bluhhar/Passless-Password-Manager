@@ -89,12 +89,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\AddPassword.cs" />
-    <Compile Include="MVVM\Model\MainWindow.cs" />
-    <Compile Include="MVVM\Model\Options.cs" />
-    <Compile Include="MVVM\Model\PasswordManager.cs" />
-    <Compile Include="MVVM\Model\PasswordModel.cs" />
-    <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\View\AddPasswordView.xaml.cs">
       <DependentUpon>AddPasswordView.xaml</DependentUpon>
     </Compile>
@@ -135,6 +129,8 @@
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="Images\" />
+    <Folder Include="MVVM\Model\" />
+    <Folder Include="MVVM\ViewModel\" />
     <Folder Include="Services\" />
     <Folder Include="Theme\" />
   </ItemGroup>
