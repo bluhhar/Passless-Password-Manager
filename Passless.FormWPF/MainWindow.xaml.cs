@@ -21,7 +21,6 @@ namespace Passless.FormWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace Passless.FormWPF
             {
                 PasswordManager passwordManager = Application.Current.Windows.OfType<PasswordManager>().FirstOrDefault();
 
-                if (passwordManager != null)
+                if (passwordManager != null) //ПОФИКСИТЬ ЗАКРЫТИЕ, тк когда нажимаешь CNTL E заново чтобы раскрыть, он его закрывает
                 {
                     if (passwordManager.WindowState == WindowState.Minimized)
                     {
@@ -45,6 +44,24 @@ namespace Passless.FormWPF
                 {
                     passwordManager = new PasswordManager();
                     passwordManager.Show();
+                }
+            }
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.D)
+            {
+                OptionsView optionsView = Application.Current.Windows.OfType<OptionsView>().FirstOrDefault();
+
+                if (optionsView != null)
+                {
+                    if (optionsView.WindowState == WindowState.Minimized)
+                    {
+                        optionsView.WindowState = WindowState.Normal;
+                    }
+                    optionsView.Activate();
+                }
+                else
+                {
+                    optionsView = new OptionsView();
+                    optionsView.Show();
                 }
             }
         }

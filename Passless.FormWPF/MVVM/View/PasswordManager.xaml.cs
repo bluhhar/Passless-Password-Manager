@@ -162,7 +162,22 @@ namespace Passless.FormWPF.MVVM.View
             else if (e.Key == Key.Delete)
             {
                 string selectedPassword = passwordListBox.SelectedItem as string;
-                
+                if(selectedPassword != "Add new password..." && selectedPassword != null)
+                {
+                    DeleteFile(_selectedLocationPath + selectedPassword);
+
+                    passwords.Remove(selectedPassword); //МБ СОКРАТИТЬ КОД ЗДЕСЬ
+                    passwordListBox.ItemsSource = null;
+                    passwordListBox.ItemsSource = passwords;
+                }
+            }
+        }
+
+        private void DeleteFile(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
             }
         }
     }

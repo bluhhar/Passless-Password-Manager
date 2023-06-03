@@ -35,7 +35,7 @@ namespace Passless.FormWPF.MVVM.View
             CheckBox checkBox = (CheckBox)sender;
             int index = Array.IndexOf(checkboxes, checkBox);
             _allowed[index] = checkBox.IsChecked == true ? 1 : 0;
-            string result = Passless.Classes.Random.PasswordGenerator.RandomPassword(16, "", _allowed);
+            _ = Passless.Classes.Random.PasswordGenerator.RandomPassword(16, "", _allowed);
         }
     }
 }
