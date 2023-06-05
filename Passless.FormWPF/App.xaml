@@ -16,5 +16,13 @@
             <view:OptionsAppearanceView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:OptionsGitViewModel}">
+            <view:OptionsGitView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:OptionsYandexDiskViewModel}">
+            <view:OptionsYandexDiskView/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

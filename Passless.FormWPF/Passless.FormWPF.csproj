@@ -79,11 +79,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\OptionsGitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\OptionsRepositoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\OptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\OptionsYandexDiskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,19 +106,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\ViewModel\OptionsAppearanceViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OptionsGitViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OptionsRepositoryViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OptionsViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OptionsYandexDiskViewModel.cs" />
     <Compile Include="MVVM\View\AddPasswordView.xaml.cs">
       <DependentUpon>AddPasswordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\OptionsAppearanceView.xaml.cs">
       <DependentUpon>OptionsAppearanceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\OptionsGitView.xaml.cs">
+      <DependentUpon>OptionsGitView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\OptionsRepositoryView.xaml.cs">
       <DependentUpon>OptionsRepositoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\OptionsView.xaml.cs">
       <DependentUpon>OptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OptionsYandexDiskView.xaml.cs">
+      <DependentUpon>OptionsYandexDiskView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\PasswordGenerator.xaml.cs">
       <DependentUpon>PasswordGenerator.xaml</DependentUpon>

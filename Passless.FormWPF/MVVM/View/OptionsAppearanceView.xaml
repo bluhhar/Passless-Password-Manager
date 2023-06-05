@@ -7,21 +7,239 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="350">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Цвет фона"
-               FontFamily="Consolas" FontSize="16"
+        <!--0-->
+        <Label Content="Оформление"
+               FontFamily="Consolas" FontSize="14"
                Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
                Grid.Column="0"
-               VerticalAlignment="Top"/>
+               Grid.Row="0"
+               Margin="10,0,0,0"/>
+
+        <!--1-->
+        <Label Content="Тема"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="1"
+               Margin="5,0,0,0"/>
+
+        <ComboBox Background="Black"
+                  Height="20"
+                  Width="100"
+                  VerticalContentAlignment="Top"
+                  HorizontalContentAlignment="Left"
+                  Margin="0,5,0,5"
+                  Grid.Column="1"
+                  Grid.Row="1"/>
+
+        <!--2-->
+        <Label Content="Цвет рамки"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="2"
+               Margin="5,0,5,0"/>
 
         <TextBox Background="Black"
                  Height="20"
                  Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
                  Grid.Column="1"
-                 VerticalAlignment="Top"/>
+                 Grid.Row="2"
+                 Margin="0,5,0,5"/>
+
+        <!--3-->
+        <Label Content="Цвет фона"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="3"
+               Margin="5,0,5,0"/>
+
+        <TextBox Background="Black"
+                 Height="20"
+                 Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="3"
+                 Margin="0,5,0,5"/>
+
+        <!--4-->
+        <Label Content="Фоновая картинка"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="4"
+               Margin="5,0,5,0"/>
+
+        <TextBox Background="Black"
+                 Height="20"
+                 Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 Margin="0,5,0,5"/>
+
+        <Button Content="Выбрать"
+                Height="20"
+                Width="75"
+                VerticalAlignment="Top"
+                Grid.Column="2"
+                Grid.Row="4"
+                Margin="5,5,5,5"/>
+
+        <!--5-->
+        <Label Content="Прозрачность фона"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="5"
+               Margin="5,0,5,0"/>
+
+        <TextBox Background="Black"
+                 Height="20"
+                 Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 Margin="0,5,0,5"/>
+
+        <!--6-->
+        <Label Content="Шрифт"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="6"
+               Margin="5,0,5,0"/>
+
+        <TextBox Background="Black"
+                 Height="20"
+                 Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 Margin="0,5,0,5"/>
+
+        <Button Content="Выбрать"
+                Height="20"
+                Width="75"
+                VerticalAlignment="Top"
+                Grid.Column="2"
+                Grid.Row="6"
+                Margin="5,5,5,5"/>
+
+        <!--7-->
+        <Label Content="Видимость"
+               FontFamily="Consolas" FontSize="14"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="7"
+               Margin="10,0,0,0"/>
+
+        <!--8-->
+        <Label Content="Трей"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="8"
+               Margin="5,0,5,0"/>
+
+        <CheckBox VerticalAlignment="Top"
+                  Grid.Column="1"
+                  Grid.Row="8"
+                  Margin="5,5,5,5"
+                  IsChecked="True"/>
+
+        <!--9-->
+        <Label Content="Комбинации клавиш"
+               FontFamily="Consolas" FontSize="14"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="9"
+               Margin="10,0,0,0"/>
+
+        <!--10-->
+        <Label Content="Окно менеджера"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="10"
+               Margin="5,0,5,0"/>
+
+        <TextBox Background="Black"
+                 Height="20"
+                 Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="10"
+                 Margin="0,5,0,5"/>
+        
+        <!--11-->
+        <Label Content="Окно настроек"
+               FontFamily="Consolas" FontSize="12"
+               Foreground="White"
+               VerticalAlignment="Top"
+               Height="30"
+               Grid.Column="0"
+               Grid.Row="11"
+               Margin="5,0,5,0"/>
+
+        <TextBox Background="Black"
+                 Height="20"
+                 Width="100"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="11"
+                 Margin="0,5,0,5"/>
     </Grid>
 </UserControl>

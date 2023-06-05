@@ -117,16 +117,18 @@
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"/>
+                             Style ="{StaticResource MenuButtonTheme}"
+                             Command="{Binding GitViewCommand}"/>
                 
                 <RadioButton Content="YandexDisk" 
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"/>
+                             Style ="{StaticResource MenuButtonTheme}"
+                             Command="{Binding YandexDiskViewCommand}"/>
             </StackPanel>
 
-            <ContentControl Margin="10"
+            <ContentControl Margin="10,10,0,0"
                             Grid.Column="1"
                             Grid.Row="1"
                             Content="{Binding CurrentView}"/>
