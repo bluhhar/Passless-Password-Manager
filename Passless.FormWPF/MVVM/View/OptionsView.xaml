@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Passless.FormWPF.MVVM.View"
+        xmlns:viewModel="clr-namespace:Passless.FormWPF.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="OptionsView" 
         Height="500" 
@@ -14,6 +15,11 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False">
+
+    <Window.DataContext>
+        <viewModel:OptionsViewModel/>
+    </Window.DataContext>
+    
     <Border BorderBrush="White" BorderThickness="0.6">
         <Grid>
             
@@ -86,7 +92,7 @@
 
                     Grid.Column="1"
                     Grid.Row="0"/>
-            
+
             <StackPanel Orientation="Vertical" 
                         VerticalAlignment="Top"
                         HorizontalAlignment="Stretch"
@@ -96,24 +102,35 @@
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"/>
+                             Style ="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding RepositoryViewCommand}"/>
+                
                 <RadioButton Content="Внешний вид"
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"/>
+                             Style ="{StaticResource MenuButtonTheme}"
+                             Command="{Binding AppearanceViewCommand}"/>
+                
                 <RadioButton Content="Git" 
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"
                              Height="50"
                              Style ="{StaticResource MenuButtonTheme}"/>
+                
                 <RadioButton Content="YandexDisk" 
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"
                              Height="50"
                              Style ="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
-            
+
+            <ContentControl Margin="10"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Content="{Binding CurrentView}"/>
+
         </Grid>
     </Border>
 </Window>

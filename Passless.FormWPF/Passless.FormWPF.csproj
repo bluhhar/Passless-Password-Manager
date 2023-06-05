@@ -75,6 +75,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\OptionsAppearanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\OptionsRepositoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\OptionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,8 +97,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\OptionsAppearanceViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OptionsRepositoryViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OptionsViewModel.cs" />
     <Compile Include="MVVM\View\AddPasswordView.xaml.cs">
       <DependentUpon>AddPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OptionsAppearanceView.xaml.cs">
+      <DependentUpon>OptionsAppearanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OptionsRepositoryView.xaml.cs">
+      <DependentUpon>OptionsRepositoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\OptionsView.xaml.cs">
       <DependentUpon>OptionsView.xaml</DependentUpon>
@@ -130,7 +147,6 @@
     <Folder Include="Fonts\" />
     <Folder Include="Images\" />
     <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\ViewModel\" />
     <Folder Include="Services\" />
     <Folder Include="Theme\" />
   </ItemGroup>

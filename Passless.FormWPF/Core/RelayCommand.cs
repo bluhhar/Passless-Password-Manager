@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Passless.FormWPF.Core
 {
-    internal class RelayCommand
+    internal class RelayCommand : ICommand
     {
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
