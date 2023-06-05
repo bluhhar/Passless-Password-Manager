@@ -5,8 +5,115 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Passless.FormWPF.MVVM.View"
         mc:Ignorable="d"
-        Title="OptionsView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="OptionsView" 
+        Height="500" 
+        Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#80000000"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False">
+    <Border BorderBrush="White" BorderThickness="0.6">
+        <Grid>
+            
+            <Grid.Resources>
+                <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+                       TargetType="{x:Type RadioButton}"
+                       x:Key="MenuButtonTheme">
+                    <Style.Setters>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Grid VerticalAlignment="Stretch"
+                                          HorizontalAlignment="Stretch"
+                                          Background="{TemplateBinding Background}">
+                                        <TextBlock Text="{TemplateBinding Property = Content}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="10,0,0,0"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style.Setters>
+                    <Style.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush>
+                                        <SolidColorBrush.Color>
+                                            <Color A="175" R="33" G="33" B="33" />
+                                        </SolidColorBrush.Color>
+                                    </SolidColorBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Настройки" 
+                   FontFamily="Consolas" FontSize="22" 
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="0"
+                   Grid.Row="0"/>
+
+            <Button x:Name="closeOptionView"
+                    Content="X" 
+                    Foreground ="White"
+                    Background="Black"
+                    BorderBrush="White"
+                    FontFamily="Consolas" FontSize="16"
+                    BorderThickness="0.6,0,0,0.6"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Width="20" Height="20"
+
+                    Grid.Column="1"
+                    Grid.Row="0"/>
+            
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Stretch"
+                        Grid.Column="0"
+                        Grid.Row="1">
+                <RadioButton Content="Репозиторий" 
+                             FontFamily="Consolas" FontSize="18"
+                             Foreground="White"
+                             Height="50"
+                             Style ="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Внешний вид"
+                             FontFamily="Consolas" FontSize="18"
+                             Foreground="White"
+                             Height="50"
+                             Style ="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Git" 
+                             FontFamily="Consolas" FontSize="18"
+                             Foreground="White"
+                             Height="50"
+                             Style ="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="YandexDisk" 
+                             FontFamily="Consolas" FontSize="18"
+                             Foreground="White"
+                             Height="50"
+                             Style ="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
 </Window>
