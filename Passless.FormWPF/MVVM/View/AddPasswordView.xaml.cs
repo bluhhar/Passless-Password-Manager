@@ -1,5 +1,4 @@
-﻿using Passless.Classes.Passwords;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xaml.Schema;
+using System.IO;
+
+using Passless.Classes.Passwords;
+using Passless.Classes.Random;
 
 namespace Passless.FormWPF.MVVM.View
 {
@@ -29,10 +32,17 @@ namespace Passless.FormWPF.MVVM.View
 
         private List<string> _words = new List<string>();
         private const string _pathToWordLists = @"C:\Users\bluhhar\AppData\Local\Passless\Wordlists";
+        //private const string _pathToWordLists = @"C:\Users\bluhhar\source\repos\Passless\Passless.FormWPF\bin\Debug\Wordlists";
 
         public AddPasswordView(string path, string fileName, string keyOwner)
         {
             InitializeComponent();
+
+            foreach (string file in Directory.GetFiles(_pathToWordLists, "*.words"))
+            {
+                comboBoxWordList.Items.Add(file.Replace(_pathToWordLists, ""));
+            }
+
             _path = path;
             _fileName = fileName;
             _keyOwner = keyOwner;
@@ -113,6 +123,32 @@ namespace Passless.FormWPF.MVVM.View
                 textBox.BorderThickness = new Thickness(0.6);
                 checkBoxOtherChars.IsChecked = true;
             }
+        }
+
+        private void ComboBoxWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string readText;
+            string path = _pathToWordLists + comboBoxWordList.SelectedItem;
+            using (StreamReader readtext = new StreamReader(path))
+            {
+                readText = readtext.ReadLine();
+            }
+            char[] delimiterChars = { ' ', ',' };
+            string[] words = readText.Split(delimiterChars);
+            List<string> temp = new List<string>(words);
+            for (int i = 0; i < temp.Count; i++)
+            {
+                temp.Remove("");
+            }
+            words = temp.ToArray();
+            _words = words.ToList();
+            textBoxSeparator.IsEnabled = true;
+            passwordTextBox.Text = PassphraseGenerator.RandomPassphrase(int.Parse(textBoxLength.Text), words, textBoxSeparator.Text);
+        }
+
+        private void TextBoxSeparator_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            passwordTextBox.Text = PassphraseGenerator.RandomPassphrase(int.Parse(textBoxLength.Text), _words.ToArray(), textBoxSeparator.Text);
         }
     }
 }
