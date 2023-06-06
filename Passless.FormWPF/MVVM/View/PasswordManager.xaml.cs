@@ -57,6 +57,7 @@ namespace Passless.FormWPF.MVVM.View
             //TODO: сделать чтобы фокус всегда был на серчбоксе чтобы к примеру использовать только
             //клавиатуру
             passwordListBox.ItemsSource = passwords;
+            _keyOwner = "bluh@btwow.ru";
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -120,7 +121,7 @@ namespace Passless.FormWPF.MVVM.View
             string selectedPassword = passwordListBox.SelectedItem as string;
             if (selectedPassword == "Add new password..." && !editMode)
             {
-                AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, "bluh@btwow.ru", searchBox.Text);
+                AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, searchBox.Text, _keyOwner);
                 addPasswordWindow.Owner = this;
                 addPasswordWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 bool? result = addPasswordWindow.ShowDialog();
@@ -145,7 +146,7 @@ namespace Passless.FormWPF.MVVM.View
             }
             else if (isLeftClick && editMode)
             {
-                EditPasswordView editPasswordWindow = new EditPasswordView();
+                EditPasswordView editPasswordWindow = new EditPasswordView(_selectedLocationPath, selectedPassword, _keyOwner);
                 editPasswordWindow.Owner = this;
                 editPasswordWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 bool? result = editPasswordWindow.ShowDialog();

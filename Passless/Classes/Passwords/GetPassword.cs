@@ -45,5 +45,16 @@ namespace Passless.Classes.Passwords
             
             return content;
         }
+
+        public static string GetContentFromRepository(string fileName)
+        {
+            var context = GpgContext.CreateContext();
+
+            var inputBuffer = MemoryGpgBuffer.CreateFromFile(fileName);
+
+            var content = new StreamReader(context.Decrypt(inputBuffer)).ReadToEnd();
+
+            return content;
+        }
     }
 }

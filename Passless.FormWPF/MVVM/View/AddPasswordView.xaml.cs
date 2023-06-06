@@ -22,16 +22,15 @@ namespace Passless.FormWPF.MVVM.View
     public partial class AddPasswordView : Window
     {
         private string _path;
-        private string _keyOwner;
         private string _fileName;
+        private string _keyOwner;
 
-        public AddPasswordView(string path, string keyOwner, 
-            string fileName)
+        public AddPasswordView(string path, string fileName, string keyOwner)
         {
             InitializeComponent();
             _path = path;
-            _keyOwner = keyOwner;
             _fileName = fileName;
+            _keyOwner = keyOwner;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
