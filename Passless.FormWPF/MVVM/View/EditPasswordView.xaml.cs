@@ -75,7 +75,7 @@ namespace Passless.FormWPF.MVVM.View
                 }
                 else
                 {
-                    result = loginTextBox.Text + ":" + passwordTextBox.Text;
+                    result = loginTextBox.Text + ":" + _password;
                     AddPassword.AddPasswordToRepository(_path, _keyOwner, _fileName, result);
                     DialogResult = true;
                 }
@@ -99,7 +99,11 @@ namespace Passless.FormWPF.MVVM.View
 
         private void PasswordTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            if (passwordTextBox.IsFocused)
+            {
+                _password = passwordTextBox.Text;
+            }
+            //ДОБАВИТЬ В ДОБАВЛЕНИЕ ЕСЛИ УЖЕ ЕСТЬ РАСШИРЕНИЕ .GPG
         }
     }
 }
