@@ -25,6 +25,11 @@ namespace Passless.FormWPF.MVVM.View
         private string _fileName;
         private string _keyOwner;
 
+        private int[] _allowed = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        private List<string> _words = new List<string>();
+        private const string _pathToWordLists = @"C:\Users\bluhhar\AppData\Local\Passless\Wordlists";
+
         public AddPasswordView(string path, string fileName, string keyOwner)
         {
             InitializeComponent();
@@ -82,6 +87,32 @@ namespace Passless.FormWPF.MVVM.View
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void CheckBox_Update(object sender, RoutedEventArgs e)
+        {
+            CheckBox[] checkboxes = { checkBoxLower, checkBoxUpper, checkBoxNumbers,
+                checkBoxSpecial, checkBoxSlashes, checkBoxBrackets,
+                checkBoxCommadot, checkBoxApostraph, checkBoxOperations, checkBoxOtherChars};
+            CheckBox checkBox = (CheckBox)sender;
+            int index = Array.IndexOf(checkboxes, checkBox);
+            _allowed[index] = checkBox.IsChecked == true ? 1 : 0;
+            passwordTextBox.Text = Classes.Random.PasswordGenerator.RandomPassword(int.Parse(textBoxLength.Text), textBoxOtherChars.Text, _allowed);
+        }
+
+        private void TextBoxOtherChars_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if(string.IsNullOrEmpty(textBoxOtherChars.Text))
+            {
+                textBox.BorderThickness = new Thickness(0);
+                checkBoxOtherChars.IsChecked = false;
+            }
+            else
+            {
+                textBox.BorderThickness = new Thickness(0.6);
+                checkBoxOtherChars.IsChecked = true;
+            }
         }
     }
 }
