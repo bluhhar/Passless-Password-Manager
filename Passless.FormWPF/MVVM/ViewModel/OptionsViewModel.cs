@@ -36,7 +36,7 @@ namespace Passless.FormWPF.MVVM.ViewModel
             Appearance = new OptionsAppearanceViewModel();
             Shortcuts = new OptionsShortcutsViewModel();
             Git = new OptionsGitViewModel();
-            YandexDisk= new OptionsYandexDiskViewModel();
+            YandexDisk = new OptionsYandexDiskViewModel();
             
             CurrentView = Reposiroty;
 

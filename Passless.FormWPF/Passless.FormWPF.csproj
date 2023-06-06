@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\EditPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\OptionsAppearanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +121,9 @@
     <Compile Include="MVVM\ViewModel\OptionsYandexDiskViewModel.cs" />
     <Compile Include="MVVM\View\AddPasswordView.xaml.cs">
       <DependentUpon>AddPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\EditPasswordView.xaml.cs">
+      <DependentUpon>EditPasswordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\OptionsAppearanceView.xaml.cs">
       <DependentUpon>OptionsAppearanceView.xaml</DependentUpon>

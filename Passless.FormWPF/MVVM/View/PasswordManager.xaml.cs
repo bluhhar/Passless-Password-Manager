@@ -41,6 +41,12 @@ namespace Passless.FormWPF.MVVM.View
             }
         }
 
+        private void UpdatePasswords()
+        {
+            passwordListBox.ItemsSource = null;
+            passwordListBox.ItemsSource = passwords;
+        }
+
         public PasswordManager()
         {
             InitializeComponent();
@@ -94,18 +100,25 @@ namespace Passless.FormWPF.MVVM.View
 
         private void PasswordListBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            HandleSelectedPassword(true);
+            HandleSelectedPassword(true, false);
         }
 
         private void PasswordListBoxItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            HandleSelectedPassword(false);
+            HandleSelectedPassword(false, false);
         }
 
-        private void HandleSelectedPassword(bool isLeftClick)
+        //TODO: сделать так, чтобы не срабатывал ивент на получения пароля
+        //чтобы просто открывалось меню редактирования пароля
+        private void PasswordListBox_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            HandleSelectedPassword(true, true);
+        }
+
+        private void HandleSelectedPassword(bool isLeftClick, bool editMode)
         {
             string selectedPassword = passwordListBox.SelectedItem as string;
-            if (selectedPassword == "Add new password...")
+            if (selectedPassword == "Add new password..." && !editMode)
             {
                 AddPasswordView addPasswordWindow = new AddPasswordView(_selectedLocationPath, "bluh@btwow.ru", searchBox.Text);
                 addPasswordWindow.Owner = this;
@@ -115,9 +128,10 @@ namespace Passless.FormWPF.MVVM.View
                 if (result == true)
                 {
                     LoadPasswords();
+                    UpdatePasswords();
                 }
             }
-            else if (selectedPassword != "Add new password..." && selectedPassword != null)
+            else if (selectedPassword != "Add new password..." && selectedPassword != null && !editMode)
             {
                 string password = GetPassword.GetPasswordFromRepository(_selectedLocationPath + selectedPassword, isLeftClick);
                 Clipboard.SetText(password);
@@ -128,6 +142,19 @@ namespace Passless.FormWPF.MVVM.View
                 });
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
+            }
+            else if (isLeftClick && editMode)
+            {
+                EditPasswordView editPasswordWindow = new EditPasswordView();
+                editPasswordWindow.Owner = this;
+                editPasswordWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                bool? result = editPasswordWindow.ShowDialog();
+
+                if (result == true)
+                {
+                    LoadPasswords();
+                    UpdatePasswords();
+                }
             }
         }
 
@@ -153,11 +180,11 @@ namespace Passless.FormWPF.MVVM.View
             }
             else if (e.Key == Key.Left)
             {
-                HandleSelectedPassword(true);
+                HandleSelectedPassword(true, false);
             }
             else if (e.Key == Key.Right)
             {
-                HandleSelectedPassword(false);
+                HandleSelectedPassword(false, false);
             }
             else if (e.Key == Key.Delete)
             {
@@ -167,8 +194,9 @@ namespace Passless.FormWPF.MVVM.View
                     DeleteFile(_selectedLocationPath + selectedPassword);
 
                     passwords.Remove(selectedPassword); //МБ СОКРАТИТЬ КОД ЗДЕСЬ
-                    passwordListBox.ItemsSource = null;
-                    passwordListBox.ItemsSource = passwords;
+                    //passwordListBox.ItemsSource = null;
+                    //passwordListBox.ItemsSource = passwords;
+                    UpdatePasswords();
                 }
             }
         }
