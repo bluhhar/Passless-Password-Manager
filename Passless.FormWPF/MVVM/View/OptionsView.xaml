@@ -112,7 +112,14 @@
                              Height="50"
                              Style ="{StaticResource MenuButtonTheme}"
                              Command="{Binding AppearanceViewCommand}"/>
-                
+
+                <RadioButton Content="Клавиши"
+                             FontFamily="Consolas" FontSize="18"
+                             Foreground="White"
+                             Height="50"
+                             Style ="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ShortcutsViewCommand}"/>
+
                 <RadioButton Content="Git" 
                              FontFamily="Consolas" FontSize="18"
                              Foreground="White"

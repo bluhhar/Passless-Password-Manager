@@ -16,6 +16,10 @@
             <view:OptionsAppearanceView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:OptionsShortcutsViewModel}">
+            <view:OptionsShortcutsView/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewModel:OptionsGitViewModel}">
             <view:OptionsGitView/>
         </DataTemplate>

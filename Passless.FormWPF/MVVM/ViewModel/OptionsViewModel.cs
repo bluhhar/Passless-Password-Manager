@@ -8,11 +8,13 @@ namespace Passless.FormWPF.MVVM.ViewModel
     {
         public RelayCommand RepositoryViewCommand { get; set; }
         public RelayCommand AppearanceViewCommand { get; set; }
+        public RelayCommand ShortcutsViewCommand { get; set; }
         public RelayCommand GitViewCommand { get; set; }
         public RelayCommand YandexDiskViewCommand { get; set; }
 
         public OptionsRepositoryViewModel Reposiroty { get; set; }
         public OptionsAppearanceViewModel Appearance { get; set; }
+        public OptionsShortcutsViewModel Shortcuts { get; set; }
         public OptionsGitViewModel Git { get; set; }
         public OptionsYandexDiskViewModel YandexDisk { get; set; }
 
@@ -32,6 +34,7 @@ namespace Passless.FormWPF.MVVM.ViewModel
         { 
             Reposiroty = new OptionsRepositoryViewModel();
             Appearance = new OptionsAppearanceViewModel();
+            Shortcuts = new OptionsShortcutsViewModel();
             Git = new OptionsGitViewModel();
             YandexDisk= new OptionsYandexDiskViewModel();
             
@@ -45,6 +48,11 @@ namespace Passless.FormWPF.MVVM.ViewModel
             AppearanceViewCommand = new RelayCommand(o =>
             {
                 CurrentView = Appearance;
+            });
+
+            ShortcutsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = Shortcuts;
             });
 
             GitViewCommand = new RelayCommand(o =>
