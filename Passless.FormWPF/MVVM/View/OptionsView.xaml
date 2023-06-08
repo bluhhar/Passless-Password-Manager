@@ -78,7 +78,9 @@
                              Command="{Binding ShortcutsViewCommand}"/>
 
                 <Label Content="Резервное копирование"
-                       Margin="5,0,0,0"
+                       VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       Margin="5,10,0,0"
                        FontSize="12"
                        Style="{StaticResource FlatLabelStyle}"/>
                 

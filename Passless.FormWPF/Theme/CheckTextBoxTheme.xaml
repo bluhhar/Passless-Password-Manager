@@ -9,9 +9,9 @@
                 <ControlTemplate TargetType="CheckBox">
                     <Grid>
                         <Border x:Name="ButtonBorder" 
-                                            Background="Black"
-                                            BorderBrush="Transparent"
-                                            BorderThickness="0.6">
+                                Background="Black"
+                                BorderBrush="Transparent"
+                                BorderThickness="0.6">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </Grid>

@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Theme/TabControlTheme.xaml"/>
                 <ResourceDictionary Source="Theme/LabelTheme.xaml"/>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/MainButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:OptionsRepositoryViewModel}">

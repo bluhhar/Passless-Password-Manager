@@ -48,7 +48,8 @@
                 VerticalAlignment="Top"
                 Grid.Column="1"
                 Grid.Row="1"
-                Margin="5,5,5,5"/>
+                Margin="5,5,5,5"
+                Style="{StaticResource FlatMainButton}"/>
 
         <!--2-->
         <Label Content="Владелец подписи"
@@ -88,7 +89,8 @@
                 Grid.Column="1"
                 Grid.Row="4"
                 Margin="5,5,5,5"
-                Click="ButtonChangeKeyOwner_Click"/>
+                Click="ButtonChangeKeyOwner_Click"
+                Style="{StaticResource FlatMainButton}"/>
 
         <!--5-->
         <Label Content="Создание подписи"
@@ -114,6 +116,7 @@
                 VerticalAlignment="Top"
                 Grid.Column="1"
                 Grid.Row="6"
-                Margin="5,5,5,5"/>
+                Margin="5,5,5,5"
+                Style="{StaticResource FlatMainButton}"/>
     </Grid>
 </UserControl>
