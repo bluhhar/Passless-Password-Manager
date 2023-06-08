@@ -9,13 +9,13 @@ namespace Passless.Modules
 {
     public static class FileHelper
     {
-        public static void Writer(string path, string data)
+        public static void Writer(string path, string data, string filename)
         {
-            if (!File.Exists(path + "\\.gpg_owner"))
+            if (!File.Exists(path + filename))
             {
-                using (File.Create(path + "\\.gpg_owner")) { }
+                using (File.Create(path + filename)) { }
             }
-            using (FileStream fstream = new FileStream(path + "\\.gpg_owner", FileMode.Truncate))
+            using (FileStream fstream = new FileStream(path + filename, FileMode.Truncate))
             {
                 byte[] input = Encoding.Default.GetBytes(data);
                 fstream.Write(input, 0, input.Length);
@@ -23,14 +23,14 @@ namespace Passless.Modules
             }
         }
 
-        public static string Reader(string path)
+        public static string Reader(string path, string filename)
         {
             string result = "";
-            if(!File.Exists(path + "\\.gpg_owner"))
+            if(!File.Exists(path + filename))
             {
                 return result;
             }
-            using (FileStream fstream = File.OpenRead(path + "\\.gpg_owner"))
+            using (FileStream fstream = File.OpenRead(path + filename))
             {
                 byte[] buffer = new byte[fstream.Length];
                 fstream.Read(buffer, 0, buffer.Length);

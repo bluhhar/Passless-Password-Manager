@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Passless.Classes.Passwords;
+using Passless.FormWPF.MVVM.Model;
 using Passless.Modules;
 
 namespace Passless.FormWPF.MVVM.View
@@ -29,6 +30,8 @@ namespace Passless.FormWPF.MVVM.View
         private string _keyOwner = null;
 
         private List<string> passwords;
+
+        private KeyOwnerModel _keyOwnerInstance = new KeyOwnerModel();
 
         private void LoadPasswords()
         {
@@ -50,14 +53,14 @@ namespace Passless.FormWPF.MVVM.View
         public PasswordManager()
         {
             InitializeComponent();
-            _keyOwner = FileHelper.Reader(_selectedLocationPath);
+            _keyOwner = FileHelper.Reader(_selectedLocationPath, "\\.gpg_owner");
             Controller.Activation();
             LoadPasswords();
             searchBox.Focus(); //ВЫБИРАТЬ ТЕКСТБОКС АКТИВИРОВАННЫМ ПРИ ЗАГРУЗКИ ФОРМЫ
             //TODO: сделать чтобы фокус всегда был на серчбоксе чтобы к примеру использовать только
             //клавиатуру
             passwordListBox.ItemsSource = passwords;
-            _keyOwner = "bluh@btwow.ru";
+            _keyOwner = _keyOwnerInstance.GetKeyOwner();
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)

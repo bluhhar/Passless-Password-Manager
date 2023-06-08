@@ -50,7 +50,7 @@ namespace Passless.WinForm
         public FormMain()
         {
             InitializeComponent();
-            _keyOwner = FileHelper.Reader(_selectedLocationPath);
+            _keyOwner = FileHelper.Reader(_selectedLocationPath, "\\.gpg_owner");
             keyTextBox.Text = _keyOwner;
             Controller.Activation();
             notifyIconMain.ShowBalloonTip(3000, "Passless", "Запущен", ToolTipIcon.Info);
@@ -88,8 +88,8 @@ namespace Passless.WinForm
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                FileHelper.Writer(_selectedLocationPath, keyTextBox.Text);
-                _keyOwner = FileHelper.Reader(_selectedLocationPath);
+                FileHelper.Writer(_selectedLocationPath, keyTextBox.Text, "\\.gpg_owner");
+                _keyOwner = FileHelper.Reader(_selectedLocationPath, "\\.gpg_owner");
                 keyTextBox.Text = _keyOwner;
             }
         }

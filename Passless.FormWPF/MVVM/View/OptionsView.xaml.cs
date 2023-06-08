@@ -23,5 +23,10 @@ namespace Passless.FormWPF.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void CloseOptionView_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

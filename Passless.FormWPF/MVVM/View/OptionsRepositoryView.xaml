@@ -33,8 +33,8 @@
 
         <!--1-->
         <TextBox x:Name="TextBoxSelectedLocation"
-                 Height="20"
-                 Width="240"
+                 Height="24"
+                 Width="200"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Center"
                  Grid.Column="0"
@@ -42,14 +42,16 @@
                  Margin="0,5,0,5"
                  Style="{StaticResource FlatTextBoxStyle}"/>
 
-        <Button Content="Изменить"
-                Height="20"
+        <Button x:Name="ButtonChangeRepositoryLocation"
+                Content="Изменить"
+                Height="24"
                 Width="75"
                 VerticalAlignment="Top"
                 Grid.Column="1"
                 Grid.Row="1"
                 Margin="5,5,5,5"
-                Style="{StaticResource FlatMainButton}"/>
+                Style="{StaticResource FlatMainButton}"
+                Click="ButtonChangeRepositoryLocation_Click"/>
 
         <!--2-->
         <Label Content="Владелец подписи"
@@ -61,18 +63,20 @@
                Style="{StaticResource FlatLabelStyle}"/>
 
         <!--3-->
-        <ComboBox Background="Black"
-                  Height="20"
+        <ComboBox x:Name="ComboBoxKeyOwnerCryptoProvider"
+                  Background="Black"
+                  Height="24"
                   Width="200"
                   VerticalContentAlignment="Top"
                   HorizontalContentAlignment="Left"
                   Margin="0,5,0,5"
                   Grid.Column="0"
-                  Grid.Row="3"/>
+                  Grid.Row="3"
+                  Style="{StaticResource FlatComboBox}"/>
 
         <!--4-->
         <TextBox x:Name="TextBoxKeyOwner"
-                 Height="20"
+                 Height="24"
                  Width="200"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Center"
@@ -83,7 +87,7 @@
         
         <Button x:Name="ButtonChangeKeyOwner"
                 Content="OK"
-                Height="20"
+                Height="24"
                 Width="75"
                 VerticalAlignment="Top"
                 Grid.Column="1"
@@ -102,16 +106,17 @@
                Style="{StaticResource FlatLabelStyle}"/>
 
         <ComboBox Background="Black"
-                  Height="20"
+                  Height="24"
                   Width="200"
                   VerticalContentAlignment="Top"
                   HorizontalContentAlignment="Left"
                   Margin="0,5,0,5"
                   Grid.Column="0"
-                  Grid.Row="6"/>
+                  Grid.Row="6"
+                  Style="{StaticResource FlatComboBox}"/>
 
         <Button Content="Создать"
-                Height="20"
+                Height="24"
                 Width="75"
                 VerticalAlignment="Top"
                 Grid.Column="1"

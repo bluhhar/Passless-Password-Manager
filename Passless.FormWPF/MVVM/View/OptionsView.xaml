@@ -33,15 +33,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Настройки" 
-                   FontSize="22" 
-                   FontWeight="Bold" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Grid.Column="0"
-                   Grid.Row="0"
-                   Style="{StaticResource FlatLabelStyle}"/>
-
             <Button x:Name="closeOptionView"
                     Content="X" 
                     Foreground ="White"
@@ -52,21 +43,35 @@
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Right" 
                     Width="20" Height="20"
-
+                    Click="CloseOptionView_Click"
                     Grid.Column="1"
                     Grid.Row="0"/>
+
+            <Border Grid.Row="0" BorderBrush="White" BorderThickness="0.6"/>
+            <Border Grid.Row="1" BorderBrush="White" BorderThickness="0.6"/>
+
+
+            <Label Content="Настройки" 
+                   FontSize="22" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Style="{StaticResource FlatLabelStyle}"/>
 
             <StackPanel Orientation="Vertical" 
                         VerticalAlignment="Top"
                         HorizontalAlignment="Stretch"
                         Grid.Column="0"
                         Grid.Row="1">
+                
                 <RadioButton Content="Репозиторий" 
                              Height="50"
                              Style ="{StaticResource FlatMenuButton}"
                              IsChecked="True"
                              Command="{Binding RepositoryViewCommand}"/>
-                
+
                 <RadioButton Content="Внешний вид"
                              Height="50"
                              Style ="{StaticResource FlatMenuButton}"
@@ -83,17 +88,19 @@
                        Margin="5,10,0,0"
                        FontSize="12"
                        Style="{StaticResource FlatLabelStyle}"/>
-                
+
                 <RadioButton Content="Git" 
                              HorizontalAlignment="left"
                              Height="30"
+                             Width="143"
                              Margin="10,0,0,0"
                              Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding GitViewCommand}"/>
-                
+
                 <RadioButton Content="YandexDisk"
                              HorizontalAlignment="Left"
                              Height="30"
+                             Width="143"
                              Margin="10,0,0,0"
                              Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding YandexDiskViewCommand}"/>
