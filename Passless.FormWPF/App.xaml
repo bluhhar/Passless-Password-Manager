@@ -8,25 +8,37 @@
              Startup="Application_Startup">
     <Application.Resources>
 
-        <DataTemplate DataType="{x:Type viewModel:OptionsRepositoryViewModel}">
-            <view:OptionsRepositoryView/>
-        </DataTemplate>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/CheckTextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TabItemTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TabControlTheme.xaml"/>
+                <ResourceDictionary Source="Theme/LabelTheme.xaml"/>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <DataTemplate DataType="{x:Type viewModel:OptionsAppearanceViewModel}">
-            <view:OptionsAppearanceView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:OptionsRepositoryViewModel}">
+                <view:OptionsRepositoryView/>
+            </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewModel:OptionsShortcutsViewModel}">
-            <view:OptionsShortcutsView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:OptionsAppearanceViewModel}">
+                <view:OptionsAppearanceView/>
+            </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewModel:OptionsGitViewModel}">
-            <view:OptionsGitView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:OptionsShortcutsViewModel}">
+                <view:OptionsShortcutsView/>
+            </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewModel:OptionsYandexDiskViewModel}">
-            <view:OptionsYandexDiskView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:OptionsGitViewModel}">
+                <view:OptionsGitView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:OptionsYandexDiskViewModel}">
+                <view:OptionsYandexDiskView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

@@ -8,6 +8,6 @@
              d:DesignHeight="450" d:DesignWidth="350">
     <Grid>
         <Label Content="Git"
-               Foreground="White"/>
+               Style="{StaticResource FlatLabelStyle}"/>
     </Grid>
 </UserControl>

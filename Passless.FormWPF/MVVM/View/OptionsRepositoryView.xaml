@@ -24,23 +24,23 @@
 
         <!--0-->
         <Label Content="Расположение"
-               FontFamily="Consolas" FontSize="14"
-               Foreground="White"
                VerticalAlignment="Top"
                Height="30"
                Grid.Column="0"
                Grid.Row="0"
-               Margin="10,0,0,0"/>
+               Margin="10,0,0,0"
+               Style="{StaticResource FlatLabelStyle}"/>
 
         <!--1-->
-        <TextBox Background="Black"
+        <TextBox x:Name="TextBoxSelectedLocation"
                  Height="20"
                  Width="240"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Center"
                  Grid.Column="0"
                  Grid.Row="1"
-                 Margin="0,5,0,5"/>
+                 Margin="0,5,0,5"
+                 Style="{StaticResource FlatTextBoxStyle}"/>
 
         <Button Content="Изменить"
                 Height="20"
@@ -52,13 +52,12 @@
 
         <!--2-->
         <Label Content="Владелец подписи"
-               FontFamily="Consolas" FontSize="14"
-               Foreground="White"
                VerticalAlignment="Top"
                Height="30"
                Grid.Column="0"
                Grid.Row="2"
-               Margin="10,0,0,0"/>
+               Margin="10,0,0,0"
+               Style="{StaticResource FlatLabelStyle}"/>
 
         <!--3-->
         <ComboBox Background="Black"
@@ -71,32 +70,34 @@
                   Grid.Row="3"/>
 
         <!--4-->
-        <TextBox Background="Black"
+        <TextBox x:Name="TextBoxKeyOwner"
                  Height="20"
                  Width="200"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Center"
                  Grid.Column="0"
                  Grid.Row="4"
-                 Margin="0,5,0,5"/>
+                 Margin="0,5,0,5"
+                 Style="{StaticResource FlatTextBoxStyle}"/>
         
-        <Button Content="OK"
+        <Button x:Name="ButtonChangeKeyOwner"
+                Content="OK"
                 Height="20"
                 Width="75"
                 VerticalAlignment="Top"
                 Grid.Column="1"
                 Grid.Row="4"
-                Margin="5,5,5,5"/>
+                Margin="5,5,5,5"
+                Click="ButtonChangeKeyOwner_Click"/>
 
         <!--5-->
         <Label Content="Создание подписи"
-               FontFamily="Consolas" FontSize="14"
-               Foreground="White"
                VerticalAlignment="Top"
                Height="30"
                Grid.Column="0"
                Grid.Row="5"
-               Margin="10,0,0,0"/>
+               Margin="10,0,0,0"
+               Style="{StaticResource FlatLabelStyle}"/>
 
         <ComboBox Background="Black"
                   Height="20"

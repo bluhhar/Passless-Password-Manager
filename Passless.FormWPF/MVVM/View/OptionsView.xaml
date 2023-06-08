@@ -22,62 +22,25 @@
     
     <Border BorderBrush="White" BorderThickness="0.6">
         <Grid>
-            
-            <Grid.Resources>
-                <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
-                       TargetType="{x:Type RadioButton}"
-                       x:Key="MenuButtonTheme">
-                    <Style.Setters>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="RadioButton">
-                                    <Grid VerticalAlignment="Stretch"
-                                          HorizontalAlignment="Stretch"
-                                          Background="{TemplateBinding Background}">
-                                        <TextBlock Text="{TemplateBinding Property = Content}"
-                                                   VerticalAlignment="Center"
-                                                   Margin="10,0,0,0"/>
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="BorderThickness" Value="0"/>
-                    </Style.Setters>
-                    <Style.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background">
-                                <Setter.Value>
-                                    <SolidColorBrush>
-                                        <SolidColorBrush.Color>
-                                            <Color A="175" R="33" G="33" B="33" />
-                                        </SolidColorBrush.Color>
-                                    </SolidColorBrush>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Resources>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="155"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Label Content="Настройки" 
-                   FontFamily="Consolas" FontSize="22" 
+                   FontSize="22" 
                    FontWeight="Bold" 
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Grid.Column="0"
-                   Grid.Row="0"/>
+                   Grid.Row="0"
+                   Style="{StaticResource FlatLabelStyle}"/>
 
             <Button x:Name="closeOptionView"
                     Content="X" 
@@ -99,39 +62,38 @@
                         Grid.Column="0"
                         Grid.Row="1">
                 <RadioButton Content="Репозиторий" 
-                             FontFamily="Consolas" FontSize="18"
-                             Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"
+                             Style ="{StaticResource FlatMenuButton}"
                              IsChecked="True"
                              Command="{Binding RepositoryViewCommand}"/>
                 
                 <RadioButton Content="Внешний вид"
-                             FontFamily="Consolas" FontSize="18"
-                             Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"
+                             Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding AppearanceViewCommand}"/>
 
                 <RadioButton Content="Клавиши"
-                             FontFamily="Consolas" FontSize="18"
-                             Foreground="White"
                              Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"
+                             Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding ShortcutsViewCommand}"/>
 
+                <Label Content="Резервное копирование"
+                       Margin="5,0,0,0"
+                       FontSize="12"
+                       Style="{StaticResource FlatLabelStyle}"/>
+                
                 <RadioButton Content="Git" 
-                             FontFamily="Consolas" FontSize="18"
-                             Foreground="White"
-                             Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"
+                             HorizontalAlignment="left"
+                             Height="30"
+                             Margin="10,0,0,0"
+                             Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding GitViewCommand}"/>
                 
-                <RadioButton Content="YandexDisk" 
-                             FontFamily="Consolas" FontSize="18"
-                             Foreground="White"
-                             Height="50"
-                             Style ="{StaticResource MenuButtonTheme}"
+                <RadioButton Content="YandexDisk"
+                             HorizontalAlignment="Left"
+                             Height="30"
+                             Margin="10,0,0,0"
+                             Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding YandexDiskViewCommand}"/>
             </StackPanel>
 
