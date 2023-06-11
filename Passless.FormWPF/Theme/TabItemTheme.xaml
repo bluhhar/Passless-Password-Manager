@@ -6,8 +6,8 @@
                 <ControlTemplate TargetType="TabItem">
                     <Grid>
                         <Border Name="Border" 
-                                Background="Red" 
-                                BorderBrush="White" 
+                                Background="Transparent" 
+                                BorderBrush="#61ADF9" 
                                 BorderThickness="0.6,0.6,0.6,0">
                             <ContentPresenter x:Name="ContentSite"
                                               VerticalAlignment="Center" 
@@ -19,7 +19,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="Black"/>
+                            <Setter TargetName="Border" Property="Background" Value="#61ADF9"/>
                             <Setter TargetName="Border" Property="BorderThickness" Value="0.6"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

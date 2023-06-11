@@ -40,7 +40,6 @@
         <!--1-->
         <Label Content="Тема"
                FontSize="12"
-               Foreground="White"
                VerticalAlignment="Top"
                Height="30"
                Grid.Column="0"
@@ -55,7 +54,8 @@
                   HorizontalContentAlignment="Left"
                   Margin="0,5,0,5"
                   Grid.Column="1"
-                  Grid.Row="1"/>
+                  Grid.Row="1"
+                  Style="{StaticResource FlatComboBox}"/>
 
         <!--2-->
         <Label Content="Цвет рамки"
@@ -166,7 +166,7 @@
                  Margin="0,5,0,5"
                  Style="{StaticResource FlatTextBoxStyle}"/>
 
-        <Button Content="Выбрать"
+        <Button Content="Изменить"
                 Height="20"
                 Width="75"
                 VerticalAlignment="Top"

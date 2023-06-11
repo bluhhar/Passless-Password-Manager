@@ -14,7 +14,7 @@
                     <Grid>
                         <Track x:Name="PART_Track">
                             <Track.DecreaseRepeatButton>
-                                <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="Red" Foreground="Transparent" />
+                                <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="#61ADF9" Foreground="Transparent" />
                             </Track.DecreaseRepeatButton>
                             <Track.IncreaseRepeatButton>
                                 <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Background="Transparent" Foreground="Transparent" />

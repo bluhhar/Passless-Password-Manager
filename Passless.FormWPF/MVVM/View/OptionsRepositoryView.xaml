@@ -43,7 +43,7 @@
                  Style="{StaticResource FlatTextBoxStyle}"/>
 
         <Button x:Name="ButtonChangeRepositoryLocation"
-                Content="Изменить"
+                Content="{StaticResource locationIcon}"
                 Height="24"
                 Width="75"
                 VerticalAlignment="Top"

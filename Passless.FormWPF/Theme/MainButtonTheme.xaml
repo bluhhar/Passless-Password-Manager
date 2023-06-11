@@ -22,5 +22,14 @@
             </Setter.Value>
         </Setter>
 
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#61ADF9"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="#61ADF9"/>
+            </Trigger>
+        </Style.Triggers>
+
     </Style>
 </ResourceDictionary>

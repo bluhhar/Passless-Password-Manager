@@ -120,7 +120,7 @@ namespace Passless.FormWPF.MVVM.View
             }
             else
             {
-                textBox.BorderThickness = new Thickness(0.6);
+                textBox.BorderThickness = new Thickness(1);
                 checkBoxOtherChars.IsChecked = true;
             }
         }
