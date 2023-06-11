@@ -11,6 +11,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="ExpanderDownHeaderStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Template">
             <Setter.Value>
@@ -22,22 +23,46 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="FlatExpander" TargetType="{x:Type Expander}">
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
-        <Setter Property="Background" Value="Red"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Expander}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="true">
                         <DockPanel>
-                            <ToggleButton x:Name="HeaderSite" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" Content="{TemplateBinding Header}" DockPanel.Dock="Top" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}" FocusVisualStyle="{StaticResource ExpanderHeaderFocusVisual}" FontStyle="{TemplateBinding FontStyle}" FontStretch="{TemplateBinding FontStretch}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" MinWidth="0" MinHeight="0" Padding="{TemplateBinding Padding}" Style="{StaticResource ExpanderDownHeaderStyle}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Grid Background="Black" x:Name="ExpandSite" DockPanel.Dock="Bottom" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Visibility="Collapsed" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ToggleButton x:Name="HeaderSite" 
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}" 
+                                          ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" 
+                                          Content="{TemplateBinding Header}" 
+                                          DockPanel.Dock="Top" 
+                                          Foreground="#61ADF9" 
+                                          FontWeight="{TemplateBinding FontWeight}" 
+                                          FocusVisualStyle="{StaticResource ExpanderHeaderFocusVisual}" 
+                                          FontStyle="{TemplateBinding FontStyle}" 
+                                          FontStretch="{TemplateBinding FontStretch}" 
+                                          FontSize="{TemplateBinding FontSize}" 
+                                          FontFamily="{TemplateBinding FontFamily}" 
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                                          Margin="10,0,0,0" 
+                                          MinWidth="0" 
+                                          MinHeight="0"
+                                          Height="50"
+                                          Padding="{TemplateBinding Padding}" 
+                                          Style="{StaticResource ExpanderDownHeaderStyle}" 
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Grid Background="White" x:Name="ExpandSite" DockPanel.Dock="Bottom" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Visibility="Collapsed" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <Canvas>
-                                    <Path Data="M 20,0 L 50,0 L35,10 z" StrokeThickness="0" Fill="{TemplateBinding Background}" Stretch="None"/>
+                                    <Path Data="M 20,0 L 50,0 L35,10 z" StrokeThickness="0" Fill="#61ADF9" Stretch="None"/>
                                 </Canvas>
                                 <ContentPresenter Focusable="false"/>
                             </Grid>
@@ -46,6 +71,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsExpanded" Value="true">
                             <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                            <Setter Property="Background" Value="#DDEEFD"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>

@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="MainColorTheme" Color="White" />
+    <SolidColorBrush x:Key="SubColorTheme" Color="#61ADF9" />
+    <SolidColorBrush x:Key="ExtencitionColorTheme" Color="#DDEEFD" />
+    <SolidColorBrush x:Key="OpacityMainColorTheme" Color="Black" Opacity="0.5" />
+
+    <SolidColorBrush x:Key="FontColorTheme" Color="#479FF8"/>
+</ResourceDictionary>

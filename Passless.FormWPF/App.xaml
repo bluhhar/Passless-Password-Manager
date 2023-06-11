@@ -20,6 +20,9 @@
                 <ResourceDictionary Source="Theme/SliderTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ComboBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ExpanderTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ColorTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ListBoxPasswordsTheme.xaml"/>
+                <ResourceDictionary Source="Theme/SearchBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:OptionsRepositoryViewModel}">

@@ -21,15 +21,16 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontFamily" Value="Consolas"/>
             <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#61ADF9"/>
         </Style.Setters>
+        
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
                         <SolidColorBrush>
                             <SolidColorBrush.Color>
-                                <Color A="175" R="33" G="33" B="33" />
+                                <Color A="175" R="221" G="238" B="253" />
                             </SolidColorBrush.Color>
                         </SolidColorBrush>
                     </Setter.Value>
