@@ -17,6 +17,7 @@ using System.IO;
 using Passless.Classes.Passwords;
 using Passless.Classes.Random;
 
+
 namespace Passless.FormWPF.MVVM.View
 {
     /// <summary>
@@ -70,18 +71,31 @@ namespace Passless.FormWPF.MVVM.View
             }
         }
 
+        private void GeneratePassword()
+        {
+            if (TabControlPasswordGenerate.SelectedIndex == 0)
+            {
+                passwordTextBox.Text = Classes.Random.PasswordGenerator.RandomPassword(int.Parse(textBoxLength.Text), textBoxOtherChars.Text, _allowed);
+            }
+            else if (TabControlPasswordGenerate.SelectedIndex == 1 && _words.Any())
+            {
+                passwordTextBox.Text = PassphraseGenerator.RandomPassphrase(int.Parse(textBoxLength.Text), _words.ToArray(), textBoxSeparator.Text);
+            }
+        }
+
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (textBoxLength != null) // Проверяем, что textBoxLength не равен null
+            if (textBoxLength != null)
             {
                 double value = sliderLength.Value;
                 textBoxLength.Text = value.ToString();
+                GeneratePassword();
             }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (textBoxLength != null && sliderLength != null) // Проверяем, что и textBoxLength, и sliderLength не равны null
+            if (textBoxLength != null && sliderLength != null)
             {
                 double value;
                 if (double.TryParse(textBoxLength.Text, out value))

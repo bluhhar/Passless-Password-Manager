@@ -42,7 +42,7 @@ namespace Passless.Classes.Random
         // Return a random character from a string.
         private static string RandomChar(string str)
         {
-            return str.Substring(RandomInteger(0, str.Length - 1), 1);
+            return str.Substring(RandomInteger(0, str.Length), 1);
         }
 
         // Return a random permutation of a string.
