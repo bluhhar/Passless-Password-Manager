@@ -21,7 +21,7 @@
     </Window.DataContext>
     
     <Border BorderBrush="{StaticResource SubColorTheme}" 
-            BorderThickness="0.6">
+            BorderThickness="1">
         <Grid>
 
             <Grid.RowDefinitions>
@@ -36,17 +36,10 @@
 
             <Button x:Name="closeOptionView"
                     Content="X" 
-                    Foreground ="White"
-                    Background="Black"
-                    BorderBrush="White"
-                    FontFamily="Consolas" FontSize="16"
-                    BorderThickness="0.6,0,0,0.6"
-                    VerticalAlignment="Top" 
-                    HorizontalAlignment="Right" 
-                    Width="20" Height="20"
                     Click="CloseOptionView_Click"
                     Grid.Column="1"
-                    Grid.Row="0"/>
+                    Grid.Row="0"
+                    Style="{StaticResource FlatControlButton}"/>
 
             <Border Grid.Row="0" BorderBrush="{StaticResource SubColorTheme}" 
                     BorderThickness="0.6"/>
@@ -88,7 +81,6 @@
                 <Expander Header="Резервное копирование"
                           Foreground="White"
                           FontFamily="Consolas" FontSize="12"
-                          
                           Style="{StaticResource FlatExpander}">
                     
                     <!--СЮДА МОЖНО ВСТАВИТЬ HEADER STYLE-->

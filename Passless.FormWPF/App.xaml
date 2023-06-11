@@ -23,6 +23,7 @@
                 <ResourceDictionary Source="Theme/ColorTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ListBoxPasswordsTheme.xaml"/>
                 <ResourceDictionary Source="Theme/SearchBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:OptionsRepositoryViewModel}">

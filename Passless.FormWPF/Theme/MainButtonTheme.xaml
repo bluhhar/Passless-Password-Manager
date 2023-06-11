@@ -2,10 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="FlatMainButton" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="Black"/>
-        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Background" Value="#479FF8"/>
+        <Setter Property="BorderBrush" Value="#61ADF9"/>
         <Setter Property="FontFamily" Value="Consolas"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderThickness" Value="0.6,0.6,0.6,0.6"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="BorderThickness" Value="1,1,1,1"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
     </Style>
 </ResourceDictionary>
