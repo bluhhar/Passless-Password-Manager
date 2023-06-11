@@ -63,16 +63,7 @@
                Style="{StaticResource FlatLabelStyle}"/>
 
         <!--3-->
-        <ComboBox x:Name="ComboBoxKeyOwnerCryptoProvider"
-                  Background="Black"
-                  Height="24"
-                  Width="200"
-                  VerticalContentAlignment="Top"
-                  HorizontalContentAlignment="Left"
-                  Margin="0,5,0,5"
-                  Grid.Column="0"
-                  Grid.Row="3"
-                  Style="{StaticResource FlatComboBox}"/>
+
 
         <!--4-->
         <TextBox x:Name="TextBoxKeyOwner"
@@ -105,7 +96,8 @@
                Margin="10,0,0,0"
                Style="{StaticResource FlatLabelStyle}"/>
 
-        <ComboBox Background="Black"
+        <ComboBox x:Name="ComboBoxKeyOwnerCryptoProvider"
+                  Background="Black"
                   Height="24"
                   Width="200"
                   VerticalContentAlignment="Top"

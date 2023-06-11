@@ -82,28 +82,31 @@
                              Style ="{StaticResource FlatMenuButton}"
                              Command="{Binding ShortcutsViewCommand}"/>
 
-                <Label Content="Резервное копирование"
-                       VerticalContentAlignment="Center"
-                       HorizontalContentAlignment="Center"
-                       Margin="5,10,0,0"
-                       FontSize="12"
-                       Style="{StaticResource FlatLabelStyle}"/>
+                <Expander Header="Резервное копирование"
+                          Foreground="White"
+                          FontFamily="Consolas" FontSize="12"
+                          Style="{StaticResource FlatExpander}">
+                    
+                    <!--СЮДА МОЖНО ВСТАВИТЬ HEADER STYLE-->
 
-                <RadioButton Content="Git" 
-                             HorizontalAlignment="left"
-                             Height="30"
-                             Width="143"
-                             Margin="10,0,0,0"
-                             Style ="{StaticResource FlatMenuButton}"
-                             Command="{Binding GitViewCommand}"/>
+                    <StackPanel>
+                        <RadioButton Content="Git" 
+                                 HorizontalAlignment="left"
+                                 Height="30"
+                                 Width="143"
+                                 Margin="10,0,0,0"
+                                 Style ="{StaticResource FlatMenuButton}"
+                                 Command="{Binding GitViewCommand}"/>
 
-                <RadioButton Content="YandexDisk"
-                             HorizontalAlignment="Left"
-                             Height="30"
-                             Width="143"
-                             Margin="10,0,0,0"
-                             Style ="{StaticResource FlatMenuButton}"
-                             Command="{Binding YandexDiskViewCommand}"/>
+                        <RadioButton Content="YandexDisk"
+                                 HorizontalAlignment="Left"
+                                 Height="30"
+                                 Width="143"
+                                 Margin="10,0,0,0"
+                                 Style ="{StaticResource FlatMenuButton}"
+                                 Command="{Binding YandexDiskViewCommand}"/>
+                    </StackPanel>
+                </Expander>
             </StackPanel>
 
             <ContentControl Margin="10,10,0,0"

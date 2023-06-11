@@ -38,6 +38,7 @@ namespace Passless.FormWPF.MVVM.View
             TextBoxKeyOwner.Text = _keyOwner;
             _keyOwnerInstance.SetKeyOwner(_keyOwner);
             ComboBoxKeyOwnerCryptoProvider.Items.Add("OpenPGP");
+            ComboBoxKeyOwnerCryptoProvider.SelectedIndex = 0;
             ComboBoxKeyOwnerCryptoProvider.Items.Add("CryptoPro");
         }
 
