@@ -254,5 +254,11 @@
     <Resource Include="Images\editIcon.png" />
     <Resource Include="Images\locationIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainLogo.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

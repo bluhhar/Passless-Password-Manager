@@ -46,7 +46,7 @@ namespace Gpg.NET
 		}
 
         /// <summary>
-        /// Decrypts a file and writes its decrypted content to another file.
+        /// Расшифровать файл с записывает зашифрованный текст в другой файл
         /// </summary>
         /// <param name="context">Для работы с <see cref="GpgContext"/></param>
         /// <param name="inputFilePath">Путь к зашифрованному файлу.</param>
